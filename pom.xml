@@ -7,6 +7,16 @@
     <groupId>com.mifuns</groupId>
     <artifactId>mifuns-project</artifactId>
     <version>1.0.0</version>
+    <modules>
+        <module>mifuns-common</module>
+        <module>mifuns-config</module>
+        <module>mifuns-db</module>
+        <module>mifuns-facade-customer</module>
+        <module>mifuns-service-customer</module>
+        <module>mifuns-admin-manager</module>
+        <module>mifuns-app-customer</module>
+        <module>mifuns-security</module>
+    </modules>
     <packaging>pom</packaging>
 
     <properties>
