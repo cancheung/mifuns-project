@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by miguangying on 2016/12/22.
@@ -18,7 +20,10 @@ public class TestServiceController {
 
     @RequestMapping("/testservice")
     @ResponseBody
-    public String testService(){
-        return testService.insertService();
+    public Object testService(){
+        Map<String,Object> data = new HashMap<String,Object>();
+        String str = testService.insertService();
+        data.put("result",str);
+        return data;
     }
 }
