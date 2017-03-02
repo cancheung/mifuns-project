@@ -39,3 +39,7 @@
     * ObjectUtil 对象copy,以及属性复制
     * JacksonUtil  Json格式化工具
     * DateUtils    日期工具
+
+### 四、开发环境配置
+  * 安装环境推荐使用Intellij idea， jdk1.7、maven3.3以上、mysql5.5以上、redis（后续）
+  * git检出代码 ，导入 Intellij idea ,选择pom.xml导入 ，配置 idea编码 urf-8,项目默认jdk1.7，配置maven
