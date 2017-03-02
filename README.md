@@ -33,7 +33,7 @@
 
 ### 三、工具
   * mifuns-common
-    * 金额类型使用BigDecimal,运算使用car-commons 下BigDecimalUtils
+    * 金额类型使用BigDecimal,
     * excel 工具WorkbookUtil
     * MapPlaceholderHelper 属性替换工具
     * ObjectUtil 对象copy,以及属性复制
