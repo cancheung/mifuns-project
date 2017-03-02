@@ -11,5 +11,18 @@
 
     <artifactId>mifuns-facade-customer</artifactId>
 
+    <dependencies>
+        <!--DAO框架:mybatis依赖-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <!--mybatis自身实现的spring整合依赖-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+    </dependencies>
+
 
 </project>
