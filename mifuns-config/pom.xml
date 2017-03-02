@@ -11,5 +11,29 @@
 
     <artifactId>mifuns-config</artifactId>
 
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <!-- 这种情况是为了防止 ${env}为传入参数-->
+            <resource>
+                <directory>src/main/resources/dev</directory>
+                <targetPath>${project.build.directory}/classes</targetPath>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <!-- 根据env部署环境值，把对应环境的配置文件拷贝到classes目录 -->
+            <resource>
+                <directory>src/main/resources/${env}</directory>
+                <targetPath>${project.build.directory}/classes</targetPath>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
 
 </project>
