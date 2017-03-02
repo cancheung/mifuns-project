@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+
+	<!-- taxi session -->
+	<bean id="seckillSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="seckillDataSourceProxy" />
+		<property name="mapperLocations" value="classpath*:com/mifuns/customer/xmlmapper/**/*.xml" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
+	<bean id="seckillSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="seckillSqlSessionFactory" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionTemplateBeanName" value="seckillSession" />
+		<property name="basePackage" value="com.mifuns.customer.mapper" />
+	</bean>
+
+
+
+	<!-- transaction AOP configure -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="txServicePointcut" expression="execution(* com.mifuns.customer.service..*.*(..))"/>
+
+		<aop:advisor advice-ref="seckillTXAdvice" pointcut-ref="txServicePointcut"/>
+	</aop:config>
+
+
+
+</beans>		

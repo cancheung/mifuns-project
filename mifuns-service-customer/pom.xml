@@ -12,4 +12,29 @@
     <artifactId>mifuns-service-customer</artifactId>
 
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.mifuns</groupId>
+            <artifactId>mifuns-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.mifuns</groupId>
+            <artifactId>mifuns-facade-customer</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+
+
+    </dependencies>
+
+
 </project>
