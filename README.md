@@ -12,7 +12,9 @@
  * mifuns-config 公共配置模块,分为dev,test,main；maven参数-P test
  * mifuns-db 数据源项目，实现读写分离，贡献出统一数据源供上层调用。
  * mifuns-security 通用的安全模块
-#### (2) 服务接口
+
+#### (2) 服务接口模块
  * mifuns-facade-customer 通知模块实体类，接口，枚举 ，根据业务模块分
+
 #### (3) 服务实现模块
  * mifuns-service-customer
