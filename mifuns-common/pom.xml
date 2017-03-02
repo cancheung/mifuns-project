@@ -11,5 +11,13 @@
 
     <artifactId>mifuns-common</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson_version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
