@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+
+    <!-- buscar dataSource configure -->
+    <bean id="seckillDataSourceWrite" parent="abstractDataSource"	p:driverClassName="${mysql.jdbc.driverClass}"
+          p:url="${seckill.write.jdbcurl}">
+        <property name="username" value="${seckill.write.username}" />
+        <property name="password" value="${seckill.write.password}" />
+    </bean>
+    <bean id="seckillDataSourceRead" parent="abstractDataSource" p:driverClassName="${mysql.jdbc.driverClass}"
+          p:url="${seckill.read.jdbcurl}">
+        <property name="username" value="${seckill.read.username}" />
+        <property name="password" value="${seckill.read.password}" />
+    </bean>
+    <bean id="seckillDataSourceProxy" class="com.mifuns.db.proxy.DataSourceProxy">
+        <!--<property name="master" ref="seckillDataSourceWrite"/>-->
+        <property name="masters">
+            <list>
+                <ref bean="seckillDataSourceWrite"/>
+            </list>
+        </property>
+        <property name="slaves">
+            <list>
+                <ref bean="seckillDataSourceRead"/>
+            </list>
+        </property>
+    </bean>
+    <!-- seckill TransactionManager -->
+    <bean id="seckillTransactionManager" class="com.mifuns.db.proxy.DataSourceProxyTransactionManager">
+        <property name="dataSource" ref="seckillDataSourceProxy"/>
+    </bean>
+    <tx:advice id="seckillTXAdvice" transaction-manager="seckillTransactionManager">
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="insert*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="save*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="del*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="remove*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="merge*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="task*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="edit*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="create*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="upload*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+            <tx:method name="send*" propagation="REQUIRED" rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"/>
+
+            <tx:method name="check*" read-only="true" rollback-for="java.lang.Exception"/>
+            <tx:method name="query*" read-only="true" rollback-for="java.lang.Exception"/>
+            <tx:method name="show*" read-only="true" rollback-for="java.lang.Exception"/>
+            <tx:method name="get*" read-only="true"  rollback-for="java.lang.Exception"/>
+            <tx:method name="count*" read-only="true"  rollback-for="java.lang.Exception"/>
+            <tx:method name="find*" read-only="true"  rollback-for="java.lang.Exception"/>
+            <tx:method name="list*" read-only="true"  rollback-for="java.lang.Exception"/>
+            <tx:method name="select*" read-only="true"  rollback-for="java.lang.Exception"/>
+            <tx:method name="is*" read-only="true"  rollback-for="java.lang.Exception"/>
+            <tx:method name="*" read-only="true" propagation="SUPPORTS" rollback-for="java.lang.Exception"/>
+        </tx:attributes>
+    </tx:advice>
+    <!-- seckill configure end -->
+</beans>
