@@ -12,15 +12,23 @@
     <artifactId>mifuns-facade-customer</artifactId>
 
     <dependencies>
-        <!--DAO框架:mybatis依赖-->
+        <dependency>
+            <groupId>com.mifuns</groupId>
+            <artifactId>mifuns-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--mybatis 相关依赖-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
         </dependency>
-        <!--mybatis自身实现的spring整合依赖-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
         </dependency>
     </dependencies>
 
