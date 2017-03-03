@@ -35,10 +35,17 @@
     <import resource="classpath:spring/common-db.xml"></import>
     <import resource="classpath:spring/seckill-db.xml"></import>
     <import resource="classpath:spring/spring-service-customer-mybatis.xml"></import>
+    <import resource="classpath:spring/spring-service-system-mybatis.xml"></import>
+
 
 
     <context:annotation-config/>
     <context:component-scan base-package="com.mifuns.customer">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <context:component-scan base-package="com.mifuns.system">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
         <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
