@@ -278,6 +278,7 @@
                 <version>${druid_version}</version>
             </dependency>
 
+
             <!--mybatis 相关依赖-->
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -288,6 +289,13 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis_spring_version}</version>
+            </dependency>
+
+            <!--分页相关依赖-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${mybatis_pagehelper_version}</version>
             </dependency>
 
 
