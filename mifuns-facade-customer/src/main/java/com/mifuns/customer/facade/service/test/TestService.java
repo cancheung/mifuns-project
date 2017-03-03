@@ -1,4 +1,4 @@
-package com.mifuns.customer.facade.test;
+package com.mifuns.customer.facade.service.test;
 
 /**
  * Created by miguangying on 2017/3/1.

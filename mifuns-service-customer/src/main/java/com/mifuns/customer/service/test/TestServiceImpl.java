@@ -1,6 +1,6 @@
 package com.mifuns.customer.service.test;
 
-import com.mifuns.customer.facade.test.TestService;
+import com.mifuns.customer.facade.service.test.TestService;
 import org.springframework.stereotype.Service;
 
 /**

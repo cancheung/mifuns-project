@@ -1,6 +1,6 @@
 package com.mifuns.admin.controller;
 
-import com.mifuns.customer.facade.test.TestService;
+import com.mifuns.customer.facade.service.test.TestService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
