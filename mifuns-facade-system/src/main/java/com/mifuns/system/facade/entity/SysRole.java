@@ -1,8 +1,10 @@
 package com.mifuns.system.facade.entity;
 
+import com.mifuns.common.page.PageBean;
+
 import java.util.Date;
 
-public class SysRole {
+public class SysRole extends PageBean {
     /**
      *
      * sys_role.role_id
@@ -193,5 +195,17 @@ public class SysRole {
      */
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    @Override
+    public String toString() {
+        return "SysRole{" +
+                "roleId=" + roleId +
+                ", roleName='" + roleName + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", insertDate=" + insertDate +
+                ", updateDate=" + updateDate +
+                '}';
     }
 }

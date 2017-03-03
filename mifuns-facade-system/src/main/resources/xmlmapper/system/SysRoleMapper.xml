@@ -103,4 +103,20 @@
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where role_id = #{roleId,jdbcType=BIGINT}
   </update>
+  <select id="queryPageList" resultMap="BaseResultMap" parameterType="com.mifuns.system.facade.entity.SysRole" >
+    select
+    <include refid="Base_Column_List" />
+    from sys_role
+    <where>
+      <if test="roleId != null" >
+        and role_id = #{roleId,jdbcType=BIGINT}
+      </if>
+      <if test="roleName != null" >
+        and role_name = #{roleName,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null" >
+        and status = #{status,jdbcType=INTEGER}
+      </if>
+    </where>
+  </select>
 </mapper>

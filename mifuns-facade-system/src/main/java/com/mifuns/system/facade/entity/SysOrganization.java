@@ -1,8 +1,10 @@
 package com.mifuns.system.facade.entity;
 
+import com.mifuns.common.page.PageBean;
+
 import java.util.Date;
 
-public class SysOrganization {
+public class SysOrganization extends PageBean {
     /**
      *
      * sys_organization.organization_id
