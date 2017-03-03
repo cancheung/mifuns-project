@@ -16,6 +16,7 @@
         <module>mifuns-admin-manager</module>
         <module>mifuns-app-customer</module>
         <module>mifuns-security</module>
+        <module>mifuns-facade-system</module>
     </modules>
     <packaging>pom</packaging>
 
