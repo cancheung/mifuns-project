@@ -7,18 +7,18 @@
 
 
 
-	<!-- taxi session -->
-	<bean id="seckillSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!--  session -->
+	<bean id="customerSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="seckillDataSourceProxy" />
-		<property name="mapperLocations" value="classpath*:com/mifuns/customer/xmlmapper/**/*.xml" />
+		<property name="mapperLocations" value="classpath*:xmlmapper/customer/*Mapper.xml" />
 		<property name="configLocation" value="classpath:mybatis-config.xml"/>
 	</bean>
-	<bean id="seckillSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="seckillSqlSessionFactory" />
+	<bean id="customerSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="customerSqlSessionFactory" />
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="sqlSessionTemplateBeanName" value="seckillSession" />
-		<property name="basePackage" value="com.mifuns.customer.mapper" />
+		<property name="sqlSessionTemplateBeanName" value="customerSession" />
+		<property name="basePackage" value="com.mifuns.customer.facade.mapper" />
 	</bean>
 
 
