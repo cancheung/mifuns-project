@@ -26,4 +26,9 @@ public class SysUserServiceImpl implements SysUserService {
     public Page<SysUser> queryPageList(PageBean pageBean) {
         return sysUserMapper.queryPageList(pageBean);
     }
+
+    @Override
+    public SysUser queryUserByPassword(String username, String password) {
+        return sysUserMapper.validateUser(username,password);
+    }
 }
