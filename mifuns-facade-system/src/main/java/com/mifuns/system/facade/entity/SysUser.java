@@ -1,8 +1,10 @@
 package com.mifuns.system.facade.entity;
 
+import com.mifuns.common.page.PageBean;
+
 import java.util.Date;
 
-public class SysUser {
+public class SysUser extends PageBean {
     /**
      *
      * sys_user.user_id

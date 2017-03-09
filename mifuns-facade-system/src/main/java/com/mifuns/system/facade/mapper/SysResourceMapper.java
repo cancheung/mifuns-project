@@ -1,8 +1,9 @@
 package com.mifuns.system.facade.mapper;
 
+import com.mifuns.common.page.CommonPageMapper;
 import com.mifuns.system.facade.entity.SysResource;
 
-public interface SysResourceMapper {
+public interface SysResourceMapper extends CommonPageMapper<SysResource>{
     /**
      * sys_resource
      *

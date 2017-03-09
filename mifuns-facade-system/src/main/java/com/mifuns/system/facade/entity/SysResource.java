@@ -52,6 +52,14 @@ public class SysResource {
     private String parentIds;
 
     /**
+     *
+     * sys_resource.serial_num
+     *
+     * @mbggenerated
+     */
+    private Integer serialNum;
+
+    /**
      * 权限
      * sys_resource.permission
      *
@@ -225,6 +233,30 @@ public class SysResource {
      */
     public void setParentIds(String parentIds) {
         this.parentIds = parentIds == null ? null : parentIds.trim();
+    }
+
+    /**
+     *
+     * sys_resource.serial_num
+     *
+     * @return sys_resource.serial_num
+     *
+     * @mbggenerated
+     */
+    public Integer getSerialNum() {
+        return serialNum;
+    }
+
+    /**
+     *
+     * sys_resource.serial_num
+     *
+     * @param serialNum sys_resource.serial_num
+     *
+     * @mbggenerated
+     */
+    public void setSerialNum(Integer serialNum) {
+        this.serialNum = serialNum;
     }
 
     /**

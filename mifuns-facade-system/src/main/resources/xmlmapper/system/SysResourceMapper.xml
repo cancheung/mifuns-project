@@ -8,17 +8,18 @@
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="parent_id" property="parentId" jdbcType="BIGINT" />
     <result column="parent_ids" property="parentIds" jdbcType="VARCHAR" />
+    <result column="serial_num" property="serialNum" jdbcType="INTEGER" />
     <result column="permission" property="permission" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="insert_date" property="insertDate" jdbcType="TIMESTAMP" />
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    resource_id, resource_name, type, url, parent_id, parent_ids, permission, status, 
-    insert_date, update_date
+    resource_id, resource_name, type, url, parent_id, parent_ids, serial_num, permission,
+    status, insert_date, update_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from sys_resource
     where resource_id = #{resourceId,jdbcType=BIGINT}
@@ -28,14 +29,14 @@
     where resource_id = #{resourceId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.mifuns.system.facade.entity.SysResource" >
-    insert into sys_resource (resource_id, resource_name, type, 
-      url, parent_id, parent_ids, 
-      permission, status, insert_date, 
-      update_date)
-    values (#{resourceId,jdbcType=BIGINT}, #{resourceName,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{url,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, #{parentIds,jdbcType=VARCHAR}, 
-      #{permission,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{insertDate,jdbcType=TIMESTAMP}, 
-      #{updateDate,jdbcType=TIMESTAMP})
+    insert into sys_resource (resource_id, resource_name, type,
+    url, parent_id, parent_ids,
+    serial_num, permission, status,
+    insert_date, update_date)
+    values (#{resourceId,jdbcType=BIGINT}, #{resourceName,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+    #{url,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, #{parentIds,jdbcType=VARCHAR},
+    #{serialNum,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+    #{insertDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.SysResource" >
     insert into sys_resource
@@ -57,6 +58,9 @@
       </if>
       <if test="parentIds != null" >
         parent_ids,
+      </if>
+      <if test="serialNum != null" >
+        serial_num,
       </if>
       <if test="permission != null" >
         permission,
@@ -90,6 +94,9 @@
       <if test="parentIds != null" >
         #{parentIds,jdbcType=VARCHAR},
       </if>
+      <if test="serialNum != null" >
+        #{serialNum,jdbcType=INTEGER},
+      </if>
       <if test="permission != null" >
         #{permission,jdbcType=VARCHAR},
       </if>
@@ -122,6 +129,9 @@
       <if test="parentIds != null" >
         parent_ids = #{parentIds,jdbcType=VARCHAR},
       </if>
+      <if test="serialNum != null" >
+        serial_num = #{serialNum,jdbcType=INTEGER},
+      </if>
       <if test="permission != null" >
         permission = #{permission,jdbcType=VARCHAR},
       </if>
@@ -144,10 +154,25 @@
       url = #{url,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=BIGINT},
       parent_ids = #{parentIds,jdbcType=VARCHAR},
+      serial_num = #{serialNum,jdbcType=INTEGER},
       permission = #{permission,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
       insert_date = #{insertDate,jdbcType=TIMESTAMP},
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where resource_id = #{resourceId,jdbcType=BIGINT}
   </update>
+
+  <select id="queryPageList" resultMap="BaseResultMap" parameterType="com.mifuns.system.facade.entity.SysResource" >
+    select
+    <include refid="Base_Column_List" />
+    from sys_resource
+    <where>
+      <if test="resourceId != null" >
+        and resource_id = #{resourceId,jdbcType=BIGINT}
+      </if>
+      <if test="status != null" >
+        and status = #{status,jdbcType=INTEGER}
+      </if>
+    </where>
+  </select>
 </mapper>

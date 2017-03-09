@@ -1,8 +1,12 @@
 package com.mifuns.system.facade.mapper;
 
+import com.mifuns.common.page.CommonPageMapper;
 import com.mifuns.system.facade.entity.SysUser;
+import org.apache.ibatis.annotations.Param;
 
-public interface SysUserMapper {
+import java.util.List;
+
+public interface SysUserMapper extends CommonPageMapper<SysUser> {
     /**
      * sys_user
      *
@@ -44,4 +48,8 @@ public interface SysUserMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(SysUser record);
+
+    SysUser validateUser(@Param("username")String username, @Param("password")String password);
+
+    List<SysUser> querySysUserByIds(List<Long> userIds);
 }
