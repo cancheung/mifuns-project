@@ -33,6 +33,12 @@
 
         <dependency>
             <groupId>com.mifuns</groupId>
+            <artifactId>mifuns-common-web</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mifuns</groupId>
             <artifactId>mifuns-security</artifactId>
             <version>${project.version}</version>
         </dependency>

@@ -18,6 +18,7 @@
         <module>mifuns-security</module>
         <module>mifuns-facade-system</module>
         <module>mifuns-service-system</module>
+        <module>mifuns-common-web</module>
     </modules>
     <packaging>pom</packaging>
 
