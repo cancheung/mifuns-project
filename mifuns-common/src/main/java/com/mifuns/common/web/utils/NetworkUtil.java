@@ -1,4 +1,4 @@
-package com.mifuns.common.util;
+package com.mifuns.common.web.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

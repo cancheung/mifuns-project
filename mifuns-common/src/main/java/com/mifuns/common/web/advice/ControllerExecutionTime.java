@@ -1,6 +1,6 @@
 package com.mifuns.common.web.advice;
 
-import com.mifuns.common.util.NetworkUtil;
+import com.mifuns.common.web.utils.NetworkUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
