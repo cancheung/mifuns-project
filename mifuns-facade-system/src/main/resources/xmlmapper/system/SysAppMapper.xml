@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mifuns.system.facade.mapper.SysAppMapper" >
+  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.SysApp" >
+    <id column="app_id" property="appId" jdbcType="BIGINT" />
+    <result column="app_name" property="appName" jdbcType="VARCHAR" />
+    <result column="app_key" property="appKey" jdbcType="VARCHAR" />
+    <result column="app_secret" property="appSecret" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="insert_date" property="insertDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    app_id, app_name, app_key, app_secret, status, insert_date, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_app
+    where app_id = #{appId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_app
+    where app_id = #{appId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mifuns.system.facade.entity.SysApp" >
+    insert into sys_app (app_id, app_name, app_key, 
+      app_secret, status, insert_date, 
+      update_date)
+    values (#{appId,jdbcType=BIGINT}, #{appName,jdbcType=VARCHAR}, #{appKey,jdbcType=VARCHAR}, 
+      #{appSecret,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{insertDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.SysApp" >
+    insert into sys_app
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="appId != null" >
+        app_id,
+      </if>
+      <if test="appName != null" >
+        app_name,
+      </if>
+      <if test="appKey != null" >
+        app_key,
+      </if>
+      <if test="appSecret != null" >
+        app_secret,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="insertDate != null" >
+        insert_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="appId != null" >
+        #{appId,jdbcType=BIGINT},
+      </if>
+      <if test="appName != null" >
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="appKey != null" >
+        #{appKey,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null" >
+        #{appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="insertDate != null" >
+        #{insertDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.SysApp" >
+    update sys_app
+    <set >
+      <if test="appName != null" >
+        app_name = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="appKey != null" >
+        app_key = #{appKey,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null" >
+        app_secret = #{appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="insertDate != null" >
+        insert_date = #{insertDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where app_id = #{appId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.SysApp" >
+    update sys_app
+    set app_name = #{appName,jdbcType=VARCHAR},
+      app_key = #{appKey,jdbcType=VARCHAR},
+      app_secret = #{appSecret,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      insert_date = #{insertDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where app_id = #{appId,jdbcType=BIGINT}
+  </update>
+</mapper>
