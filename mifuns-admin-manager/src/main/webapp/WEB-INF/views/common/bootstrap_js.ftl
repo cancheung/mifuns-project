@@ -13,9 +13,34 @@
 <script src="${bootstrap_url}/js/jquery.cookie.min.js" type="text/javascript"></script>
 <script src="${bootstrap_url}/js/jquery.uniform.min.js" type="text/javascript" ></script>
 <!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="${bootstrap_url}/js/select2.min.js"></script>
+<script type="text/javascript" src="${bootstrap_url}/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="${bootstrap_url}/js/DT_bootstrap.js"></script>
+<#--<script src="media/js/jquery.vmap.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
+<script src="media/js/jquery.flot.js" type="text/javascript"></script>
+<script src="media/js/jquery.flot.resize.js" type="text/javascript"></script>
+<script src="media/js/jquery.pulsate.min.js" type="text/javascript"></script>
+<script src="media/js/date.js" type="text/javascript"></script>
+<script src="media/js/daterangepicker.js" type="text/javascript"></script>
+<script src="media/js/jquery.gritter.js" type="text/javascript"></script>
+<script src="media/js/fullcalendar.min.js" type="text/javascript"></script>
+<script src="media/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
+<script src="media/js/jquery.sparkline.min.js" type="text/javascript"></script>-->
+<!-- END PAGE LEVEL PLUGINS -->
+
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="${bootstrap_url}/js/app.js" type="text/javascript"></script>
-<script src="${bootstrap_url}/js/index.js" type="text/javascript"></script>
+<script type="text/javascript" src="${bootstrap_url}/js/app.js"></script>
+<script type="text/javascript" src="${bootstrap_url}/js/index.js"></script>
+<script type="text/javascript" src="${bootstrap_url}/js/table-managed.js"></script>
+<script type="text/javascript" src="${bootstrap_url}/js/table-editable.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 
 
