@@ -93,7 +93,7 @@
 
 						<img alt="" src="media/image/avatar1_small.jpg" />
 
-						<span class="username">Bob Nilson</span>
+						<span class="username">admin</span>
 
 						<i class="icon-angle-down"></i>
 
@@ -101,7 +101,7 @@
 
 						<ul class="dropdown-menu">
 
-							<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+							<li><a href="login.html"><i class="icon-key"></i>退出</a></li>
 
 						</ul>
 
@@ -152,7 +152,7 @@
 
 					<i class="icon-folder-open"></i> 
 
-					<span class="title">4 Level Menu</span>
+					<span class="title">一级菜单</span>
 
 					<span class="arrow "></span>
 
@@ -164,10 +164,8 @@
 
 							<a href="javascript:;">
 
-							<i class="icon-cogs"></i> 
-
-							Item 1
-
+							<i class="icon-cogs"></i>
+								二级菜单
 							<span class="arrow"></span>
 
 							</a>
@@ -180,7 +178,7 @@
 
 									<i class="icon-user"></i>
 
-									Sample Link 1
+									三级菜单
 
 									<span class="arrow"></span>
 
@@ -188,56 +186,19 @@
 
 									<ul class="sub-menu">
 
-										<li><a href="#"><i class="icon-remove"></i> Sample Link 1</a></li>
+										<li><a href="#"><i class="icon-remove"></i> 四级菜单</a></li>
 
-										<li><a href="#"><i class="icon-pencil"></i> Sample Link 1</a></li>
+										<li><a href="#"><i class="icon-pencil"></i> 四级菜单</a></li>
 
-										<li><a href="#"><i class="icon-edit"></i> Sample Link 1</a></li>
+										<li><a href="#"><i class="icon-edit"></i> 四级菜单</a></li>
 
 									</ul>
 
 								</li>
 
-								<li><a href="#"><i class="icon-user"></i>  Sample Link 1</a></li>
 
 
 							</ul>
-
-						</li>
-
-						<li>
-
-							<a href="javascript:;">
-
-							<i class="icon-globe"></i> 
-
-							Item 2
-
-							<span class="arrow"></span>
-
-							</a>
-
-							<ul class="sub-menu">
-
-								<li><a href="#"><i class="icon-user"></i>  Sample Link 1</a></li>
-
-								<li><a href="#"><i class="icon-external-link"></i>  Sample Link 1</a></li>
-
-								<li><a href="#"><i class="icon-bell"></i>  Sample Link 1</a></li>
-
-							</ul>
-
-						</li>
-
-						<li>
-
-							<a href="#">
-
-							<i class="icon-folder-open"></i>
-
-							Item 3
-
-							</a>
 
 						</li>
 
@@ -299,7 +260,7 @@
 
 						<h3 class="page-title">
 
-							Dashboard <small>statistics and more</small>
+							控制台
 
 						</h3>
 
@@ -309,13 +270,12 @@
 
 								<i class="icon-home"></i>
 
-								<a href="index.html">Home</a> 
+								<a href="index.html">主页</a>
 
 								<i class="icon-angle-right"></i>
 
 							</li>
 
-							<li><a href="#">Dashboard</a></li>
 
 							<li class="pull-right no-text-shadow">
 
