@@ -33,4 +33,9 @@ public class TestServiceController {
         return "/bootstrap_test/demo1";
     }
 
+    @RequestMapping("/index")
+    public String index(){
+        return "/bootstrap_test/index";
+    }
+
 }

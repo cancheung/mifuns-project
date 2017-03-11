@@ -11,6 +11,13 @@
     <packaging>war</packaging>
 
     <artifactId>mifuns-app-customer</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.mifuns</groupId>
+            <artifactId>mifuns-config</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 
     <build>
@@ -24,9 +31,10 @@
                     <httpConnector>
                         <port>8081</port>
                     </httpConnector>
-                    <webApp>
+                    <webAppConfig>
                         <contextPath>/</contextPath>
-                    </webApp>
+                        <defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
+                    </webAppConfig>
                     <war>${project.build.directory}/${project.build.finalName}</war>
                     <stopKey>${project.build.finalName}</stopKey>
                     <stopPort>9099</stopPort>
