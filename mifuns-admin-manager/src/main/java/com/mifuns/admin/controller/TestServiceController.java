@@ -13,6 +13,7 @@ import java.util.Map;
  * Created by miguangying on 2016/12/22.
  */
 @Controller
+@RequestMapping("/test")
 public class TestServiceController {
 
     @Resource
@@ -26,4 +27,10 @@ public class TestServiceController {
         data.put("result",str);
         return data;
     }
+
+    @RequestMapping("/demo1")
+    public String demo1(){
+        return "/bootstrap_test/demo1";
+    }
+
 }

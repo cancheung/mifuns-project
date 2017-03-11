@@ -10,6 +10,13 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:statics.properties</value>
+            </list>
+        </property>
+    </bean>
 
 	<mvc:annotation-driven>
     <mvc:message-converters register-defaults="true">
@@ -81,14 +88,8 @@
         </property>
         <property name="freemarkerVariables">
             <map>
-                <entry key="statics_url" value="${statics_url}" />
-                <entry key="statics_web_url" value="${statics_web_url}" />
-                <entry key="statics_admin_url" value="${statics_admin_url}" />
-                <entry key="media_url" value="${media_url}" />
-                <entry key="media_js_url" value="${media_js_url}" />
-                <entry key="media_css_url" value="${media_css_url}" />
-                <entry key="media_image_url" value="${media_image_url}" />
-                <entry key="wx_resources_url" value="${wx_resources_url}" />
+                <entry key="statics_js_url" value="${statics_js_url}" />
+                <entry key="bootstrap_url" value="${bootstrap_url}" />
             </map>
         </property>
     </bean>
