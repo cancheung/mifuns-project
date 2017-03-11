@@ -19,6 +19,7 @@
         <module>mifuns-facade-system</module>
         <module>mifuns-service-system</module>
         <module>mifuns-common-web</module>
+        <module>mifuns-common-service</module>
     </modules>
     <packaging>pom</packaging>
 

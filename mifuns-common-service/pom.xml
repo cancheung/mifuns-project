@@ -9,10 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mifuns-service-system</artifactId>
+    <artifactId>mifuns-common-service</artifactId>
 
     <dependencies>
-
         <dependency>
             <groupId>com.mifuns</groupId>
             <artifactId>mifuns-common</artifactId>
@@ -24,27 +23,6 @@
             <artifactId>mifuns-config</artifactId>
             <version>${project.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.mifuns</groupId>
-            <artifactId>mifuns-common-service</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.mifuns</groupId>
-            <artifactId>mifuns-facade-system</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-
-
-
     </dependencies>
 
 

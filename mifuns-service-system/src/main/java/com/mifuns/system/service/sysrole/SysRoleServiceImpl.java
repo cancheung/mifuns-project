@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * Created by miguangying on 2017/3/3.
  */
 @Service("sysRoleService")
-public class SysRoleServiceImpl implements SysRoleService{
+public class SysRoleServiceImpl implements SysRoleService,BaseCommonService{
 
     @Resource
     SysRoleMapper sysRoleMapper;
