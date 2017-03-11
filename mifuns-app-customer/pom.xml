@@ -13,4 +13,28 @@
     <artifactId>mifuns-app-customer</artifactId>
 
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.11.v20150529</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <httpConnector>
+                        <port>8081</port>
+                    </httpConnector>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                    <war>${project.build.directory}/${project.build.finalName}</war>
+                    <stopKey>${project.build.finalName}</stopKey>
+                    <stopPort>9099</stopPort>
+                    <stopWait>10</stopWait>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
 </project>
