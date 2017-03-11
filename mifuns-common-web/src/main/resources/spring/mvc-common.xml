@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+	<mvc:annotation-driven>
+    <mvc:message-converters register-defaults="true">
+        <!-- 配置Fastjson支持 -->
+        <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+            <property name="supportedMediaTypes">
+                <list>
+                    <value>text/html;charset=UTF-8</value>
+                    <value>application/json</value>
+                </list>
+            </property>
+            <property name="features">
+                <list>
+                    <value>WriteMapNullValue</value>
+                    <value>QuoteFieldNames</value>
+                </list>
+            </property>
+        </bean>
+    </mvc:message-converters>
+</mvc:annotation-driven>
+
+
+
+    <mvc:resources mapping="/static/**" location="/static/"/>
+    <mvc:view-controller path="/" view-name="index"/>
+    
+
+
+
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="defaultContentType" value="text/html" />
+        <property name="ignoreAcceptHeader" value="true" />
+        <property name="mediaTypes">
+            <map>
+                <entry key="html" value="text/html" />
+                <entry key="json" value="application/json" />
+                <entry key="xml" value="application/xml" />
+            </map>
+        </property>
+    </bean>
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+        <property name="viewResolvers">
+            <list>
+                <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+                    <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
+                    <property name="suffix" value=".ftl" />
+                    <property name="cache" value="false"/>
+                    <property name="contentType" value="text/html;charset=UTF8" />
+                    <property name="exposeRequestAttributes" value="false" />
+                    <property name="exposeSessionAttributes" value="false" />
+                    <property name="exposeSpringMacroHelpers" value="false" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <bean id="freemarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/views/" />
+        <property name="defaultEncoding" value="UTF-8" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">1</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="number_format">#.##</prop>
+                <prop key="auto_import">/common/global.ftl as global</prop>
+            </props>
+        </property>
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="statics_url" value="${statics_url}" />
+                <entry key="statics_web_url" value="${statics_web_url}" />
+                <entry key="statics_admin_url" value="${statics_admin_url}" />
+                <entry key="media_url" value="${media_url}" />
+                <entry key="media_js_url" value="${media_js_url}" />
+                <entry key="media_css_url" value="${media_css_url}" />
+                <entry key="media_image_url" value="${media_image_url}" />
+                <entry key="wx_resources_url" value="${wx_resources_url}" />
+            </map>
+        </property>
+    </bean>
+    
+
+    
+    
+    
+</beans>
