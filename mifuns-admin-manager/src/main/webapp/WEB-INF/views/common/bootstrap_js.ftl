@@ -40,7 +40,7 @@
 <script type="text/javascript" src="${bootstrap_url}/js/app.js"></script>
 <script type="text/javascript" src="${bootstrap_url}/js/index.js"></script>
 <script type="text/javascript" src="${bootstrap_url}/js/table-managed.js"></script>
-<script type="text/javascript" src="${bootstrap_url}/js/table-editable.js"></script>
+<#--<script type="text/javascript" src="${bootstrap_url}/js/table-editable.js"></script>-->
 <!-- END PAGE LEVEL SCRIPTS -->
 
 
