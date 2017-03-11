@@ -17,76 +17,9 @@
 <body class="page-header-fixed">
 
 	<!-- BEGIN HEADER -->
-
-	<div class="header navbar navbar-inverse navbar-fixed-top">
-
-		<!-- BEGIN TOP NAVIGATION BAR -->
-
-		<div class="navbar-inner">
-
-			<div class="container-fluid">
-
-				<!-- BEGIN LOGO -->
-
-				<a class="brand" href="index.html">
-
-				<img src="/static/bootstrap/media/image/logo.png" alt="logo"/>
-
-				</a>
-
-				<!-- END LOGO -->
-
-				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
-
-				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-
-				<img src="/static/bootstrap/media/image/menu-toggler.png" alt="" />
-
-				</a>          
-
-				<!-- END RESPONSIVE MENU TOGGLER -->            
-
-				<!-- BEGIN TOP NAVIGATION MENU -->
-
-				<ul class="nav pull-right">
-
-					<!-- BEGIN USER LOGIN DROPDOWN -->
-
-					<li class="dropdown user">
-
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-						<img alt="" src="media/image/avatar1_small.jpg" />
-
-						<span class="username">admin</span>
-
-						<i class="icon-angle-down"></i>
-
-						</a>
-
-						<ul class="dropdown-menu">
-
-							<li><a href="login.html"><i class="icon-key"></i>退出</a></li>
-
-						</ul>
-
-					</li>
-
-					<!-- END USER LOGIN DROPDOWN -->
-
-				</ul>
-
-				<!-- END TOP NAVIGATION MENU -->
-
-			</div>
-
-		</div>
-
-		<!-- END TOP NAVIGATION BAR -->
-
-	</div>
-
+	<#include '../common/header_navbar.ftl'>
 	<!-- END HEADER -->
+
     <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
 
 	<!-- BEGIN CONTAINER -->
@@ -94,94 +27,7 @@
 	<div class="page-container">
 
 		<!-- BEGIN SIDEBAR -->
-
-		<div class="page-sidebar nav-collapse collapse">
-
-			<!-- BEGIN SIDEBAR MENU -->        
-
-			<ul class="page-sidebar-menu">
-
-				<li>
-
-					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-
-					<div class="sidebar-toggler hidden-phone"></div>
-
-					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-
-				</li>
-
-				<li>
-
-					<a href="javascript:;">
-
-					<i class="icon-folder-open"></i> 
-
-					<span class="title">一级菜单</span>
-
-					<span class="arrow "></span>
-
-					</a>
-
-					<ul class="sub-menu">
-
-						<li>
-
-							<a href="javascript:;">
-
-							<i class="icon-cogs"></i>
-								二级菜单
-							<span class="arrow"></span>
-
-							</a>
-
-							<ul class="sub-menu">
-
-								<li>
-
-									<a href="javascript:;">
-
-									<i class="icon-user"></i>
-
-									三级菜单
-
-									<span class="arrow"></span>
-
-									</a>
-
-									<ul class="sub-menu">
-
-										<li><a href="#"><i class="icon-remove"></i> 四级菜单</a></li>
-
-										<li><a href="#"><i class="icon-pencil"></i> 四级菜单</a></li>
-
-										<li><a href="#"><i class="icon-edit"></i> 四级菜单</a></li>
-
-									</ul>
-
-								</li>
-
-
-
-							</ul>
-
-						</li>
-
-					</ul>
-
-				</li>
-
-
-
-
-
-
-			</ul>
-
-			<!-- END SIDEBAR MENU -->
-
-		</div>
-
+		<#include '../common/sidebar.ftl'>
 		<!-- END SIDEBAR -->
 
 		<!-- BEGIN PAGE -->
@@ -215,82 +61,197 @@
 			<div class="container-fluid">
 
 				<!-- BEGIN PAGE HEADER-->
-
 				<div class="row-fluid">
-
 					<div class="span12">
-
-
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-
 						<h3 class="page-title">
-
 							控制台
-
 						</h3>
-
 						<ul class="breadcrumb">
-
 							<li>
-
 								<i class="icon-home"></i>
-
 								<a href="index.html">主页</a>
-
 								<i class="icon-angle-right"></i>
-
 							</li>
-
-
 							<li class="pull-right no-text-shadow">
-
 								<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
-
 									<i class="icon-calendar"></i>
-
 									<span></span>
-
 									<i class="icon-angle-down"></i>
-
 								</div>
-
 							</li>
-
 						</ul>
-
 						<!-- END PAGE TITLE & BREADCRUMB-->
-
 					</div>
-
 				</div>
-
 				<!-- END PAGE HEADER-->
 
-				<div id="dashboard">
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <div class="portlet box purple">
+                            <div class="portlet-title">
+                                <div class="caption"><i class="icon-user"></i>用户列表</div>
+                                <div class="actions">
+                                    <a href="#" class="btn blue" id="addUser"><i class="icon-pencil"></i> 添加</a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <table class="table table-striped table-bordered table-hover" id="sample_1">
+                                    <thead>
+                                    <tr>
+                                        <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
+                                        <th>名称</th>
+                                        <th class="hidden-480">邮箱</th>
+                                        <th class="hidden-480">手机号</th>
+                                        <th class="hidden-480">创建时间</th>
+                                        <th >Status</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                         <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<!-- BEGIN DASHBOARD STATS -->
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<!-- END DASHBOARD STATS -->
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<div class="clearfix"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<div class="row-fluid"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<div class="clearfix"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<div class="row-fluid"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<div class="clearfix"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<div class="row-fluid"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<div class="clearfix"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                        <td>miguangying}</td>
+                                        <td class="hidden-480">333@qq.com</td>
+                                        <td class="hidden-480">18739975007</td>
+                                        <td class="center hidden-480"></td>
+                                        <td ><span class="label label-success">UnLock</span></td>
+                                        <td>
 
-					<div class="row-fluid"></div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END EXAMPLE TABLE PORTLET-->
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT-->
 
-				</div>
 
 			</div>
 
@@ -306,25 +267,7 @@
 
 	<!-- BEGIN FOOTER -->
 
-	<div class="footer">
-
-		<div class="footer-inner">
-
-			2013 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
-
-		</div>
-
-		<div class="footer-tools">
-
-			<span class="go-top">
-
-			<i class="icon-angle-up"></i>
-
-			</span>
-
-		</div>
-
-	</div>
+	<#include '../common/footer.ftl'>
 
 	<!-- END FOOTER -->
 
