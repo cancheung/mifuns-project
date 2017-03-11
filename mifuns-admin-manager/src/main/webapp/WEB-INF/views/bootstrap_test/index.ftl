@@ -7,44 +7,9 @@
 <!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 
 <!-- BEGIN HEAD -->
-
 <head>
-
-	<meta charset="utf-8" />
-
-	<title>Metronic | Admin Dashboard Template</title>
-
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
-	<meta content="" name="description" />
-
-	<meta content="" name="author" />
-
-	<!-- BEGIN GLOBAL MANDATORY STYLES -->
-
-	<link href="/static/bootstrap/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-
-	<link href="/static/bootstrap/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-
-	<link href="/static/bootstrap/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-
-	<link href="/static/bootstrap/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
-
-	<link href="/static/bootstrap/media/css/style.css" rel="stylesheet" type="text/css"/>
-
-	<link href="/static/bootstrap/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-
-	<link href="/static/bootstrap/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-
-	<link href="/static/bootstrap/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-
-	<!-- END GLOBAL MANDATORY STYLES -->
-
-
-	<link rel="shortcut icon" href="/static/bootstrap/media/image/favicon.ico" />
-
+<#include '../common/common_head.ftl'>
 </head>
-
 <!-- END HEAD -->
 
 <!-- BEGIN BODY -->
@@ -365,69 +330,20 @@
 
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 
-	<!-- BEGIN CORE PLUGINS -->
-
-	<script src="/static/bootstrap/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
-
-	<script src="/static/bootstrap/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-
-	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-
-	<script src="/static/bootstrap/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-
-	<script src="/static/bootstrap/media/js/bootstrap.min.js" type="text/javascript"></script>
-
-	<!--[if lt IE 9]>
-
-	<script src="/static/bootstrap/media/js/excanvas.min.js"></script>
-
-	<script src="/static/bootstrap/media/js/respond.min.js"></script>
-
-	<![endif]-->   
-
-	<script src="/static/bootstrap/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-
-	<script src="/static/bootstrap/media/js/jquery.blockui.min.js" type="text/javascript"></script>
-
-	<script src="/static/bootstrap/media/js/jquery.cookie.min.js" type="text/javascript"></script>
-
-	<script src="/static/bootstrap/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
-
-	<!-- END CORE PLUGINS -->
-
-
-	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-
-	<script src="/static/bootstrap/media/js/app.js" type="text/javascript"></script>
-
-	<script src="/static/bootstrap/media/js/index.js" type="text/javascript"></script>
-
-	<!-- END PAGE LEVEL SCRIPTS -->  
+	<#include '../common/bootstrap_js.ftl'>
 
 	<script>
-
-		jQuery(document).ready(function() {    
-
+		jQuery(document).ready(function() {
 		   App.init(); // initlayout and core plugins
-
 		   //Index.init();
-
 		   //Index.initJQVMAP(); // init index page's custom scripts
-
 		   //Index.initCalendar(); // init index page's custom scripts
-
 		   //Index.initCharts(); // init index page's custom scripts
-
 		   //Index.initChat();
-
 		   //Index.initMiniCharts();
-
 		   //Index.initDashboardDaterange();
-
 		   //Index.initIntro();
-
 		});
-
 	</script>
 
 	<!-- END JAVASCRIPTS -->

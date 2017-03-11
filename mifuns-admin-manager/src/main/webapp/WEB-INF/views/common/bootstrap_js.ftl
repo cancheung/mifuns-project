@@ -1,13 +1,22 @@
-<script src="${statics_js_url}/jquery/2.1.1/jquery.min.js"></script>
-<script src="${bootstrap_url}/js/bootstrap.min.js"></script>
-
-<!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
-<!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+<!-- BEGIN CORE PLUGINS -->
+<script src="${bootstrap_url}/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+<script src="${bootstrap_url}/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="${bootstrap_url}/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script src="${bootstrap_url}/js/bootstrap.min.js" type="text/javascript"></script>
 <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<script src="${bootstrap_url}/js/excanvas.min.js"></script>
+<script src="${bootstrap_url}/js/respond.min.js"></script>
 <![endif]-->
-
+<script src="${bootstrap_url}/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="${bootstrap_url}/js/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="${bootstrap_url}/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="${bootstrap_url}/js/jquery.uniform.min.js" type="text/javascript" ></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="${bootstrap_url}/js/app.js" type="text/javascript"></script>
+<script src="${bootstrap_url}/js/index.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
 
 
 
