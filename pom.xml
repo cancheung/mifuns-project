@@ -171,7 +171,7 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${servlet_version}</version>
-                <scope>compile</scope>
+                <scope>provided</scope>
             </dependency>
 
 
