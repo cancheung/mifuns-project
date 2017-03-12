@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:redis.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- redis pool config 统一的线程池配置 -->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <!-- 最大活跃连接数 -->
+        <property name="maxTotal" value="${redis.pool.maxActive}" />
+        <!-- 最大闲置数量 -->
+        <property name="maxIdle" value="${redis.pool.maxIdle}" />
+        <!-- 最大等待时间 -->
+        <property name="maxWaitMillis" value="${redis.pool.maxWait}" />
+        <!-- 调用borrow时是否检查其有效性 -->
+        <property name="testOnBorrow" value="${redis.pool.testOnBorrow}" />
+        <!-- 调用return时是否检查其有效性 -->
+        <property name="testOnReturn" value="${redis.pool.testOnReturn}" />
+        <!-- 空闲时是否检查对象有效性 -->
+        <property name="testWhileIdle" value="${redis.pool.testWhileIdle}" />
+    </bean>
+
+
+</beans>		        

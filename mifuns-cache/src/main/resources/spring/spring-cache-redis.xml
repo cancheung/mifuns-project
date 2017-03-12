@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+    <!-- 启用缓存注解功能，这个是必须的，否则注解不会生效，另外，该注解一定要声明在spring主配置文件中才会生效 -->
+    <cache:annotation-driven cache-manager="cacheManager" />
+
+
+    <!-- spring自己的换管理器，这里定义了两个缓存位置名称 ，既注解中的value -->
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean class="com.mifuns.cache.redis.support.RedisCacheImpl">
+                    <property name="redisTemplate" ref="redisTemplate" />
+                    <property name="name" value="default" />
+                    <property name="timeout" value="${default.redis.timeout}" />
+                </bean>
+                <bean class="com.mifuns.cache.redis.support.RedisCacheImpl">
+                    <property name="redisTemplate" ref="redisTemplate" />
+                    <property name="name" value="xiamiMusicService.queryMusicById" />
+                    <property name="timeout" value="${default.redis.timeout}" />
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+
+
+
+
+
+
+</beans>		        

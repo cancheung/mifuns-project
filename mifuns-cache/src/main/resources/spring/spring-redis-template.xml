@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- Spring提供的Redis连接工厂 -->
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" destroy-method="destroy">
+        <!-- 连接池配置. -->
+        <property name="poolConfig" ref="jedisPoolConfig" />
+        <!-- Redis服务主机. -->
+        <property name="hostName" value="${redis1.host}" />
+        <!-- Redis服务端口号. -->
+        <property name="port" value="${redis1.port}" />
+        <!-- Redis服务连接密码. -->
+        <!-- <property name="password" value="${redis.password}" /> -->
+        <!-- 连超时设置. -->
+        <property name="timeout" value="${redis.pool.maxWait}" />
+        <!-- 是否使用连接池. -->
+        <property name="usePool" value="true" />
+    </bean>
+
+    <!-- Spring提供的访问Redis类. -->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactory" />
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+            <!--<bean class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer" />-->
+        </property>
+    </bean>
+
+
+
+
+
+
+
+    <!-- jedis pool -->
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg index="0" ref="jedisPoolConfig" />
+        <constructor-arg index="1" type="java.lang.String" value="${redis1.host}"/>
+        <constructor-arg index="2" type="int" value="${redis1.port}"/>
+        <constructor-arg index="3" type="int" value="${redis.pool.maxWait}" />
+    </bean>
+
+
+    <!-- jedisTemplate 通用 redis 保存锁，计数等对象 -->
+    <bean id="jedisTemplate" class="com.mifuns.cache.redis.JedisTemplate" >
+        <property name="shards">
+            <map>
+                <entry key="1" value-ref="jedisPool"/>
+            </map>
+        </property>
+    </bean>
+
+
+
+
+
+
+</beans>		        

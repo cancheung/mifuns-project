@@ -20,6 +20,7 @@
         <module>mifuns-service-system</module>
         <module>mifuns-common-web</module>
         <module>mifuns-common-service</module>
+        <module>mifuns-cache</module>
     </modules>
     <packaging>pom</packaging>
 
