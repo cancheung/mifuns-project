@@ -25,6 +25,11 @@
         </dependency>
         <dependency>
             <groupId>com.mifuns</groupId>
+            <artifactId>mifuns-cache</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mifuns</groupId>
             <artifactId>mifuns-facade-system</artifactId>
             <version>${project.version}</version>
         </dependency>
