@@ -47,6 +47,7 @@
         <jedis_version>2.6.2</jedis_version>
         <spring_redis_version>1.3.4.RELEASE</spring_redis_version>
         <shiro_version>1.2.2</shiro_version>
+        <guava_version>16.0.1</guava_version>
     </properties>
 
     <!-- 全局属性配置 -->
@@ -378,6 +379,13 @@
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring</artifactId>
                 <version>${shiro_version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava_version}</version>
             </dependency>
 
 
