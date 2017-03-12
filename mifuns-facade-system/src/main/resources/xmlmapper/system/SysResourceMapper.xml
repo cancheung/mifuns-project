@@ -175,4 +175,53 @@
       </if>
     </where>
   </select>
+
+
+  <select id="findAll" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM sys_resource
+    ORDER BY permission
+  </select>
+  <select id="findTypeAll" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM sys_resource
+    WHERE TYPE = #{type,jdbcType=VARCHAR}
+    ORDER BY permission
+  </select>
+  <select id="findResources" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from sys_resource
+    WHERE resource_id IN (${ids})
+    ORDER BY permission
+  </select>
+  <select id="findResourcesByAppUser" resultMap="BaseResultMap" parameterType="java.util.Map">
+    SELECT DISTINCT
+    re.resource_id, re.resource_name, re.type, re.url, re.parent_id, re.parent_ids, re.permission, re.status, re.insert_date, re.update_date
+    from sys_resource re,
+    sys_role_resource rr,
+    sys_user_app_role uar,
+    sys_app a,
+    sys_user u
+    where re.resource_id = rr.resource_id
+    and uar.role_id = rr.role_id
+    ##and uar.user_id = 3
+    ##and uar.app_id = 2
+    and uar.app_id = a.app_id
+    and uar.user_id = u.user_id
+    and a.app_key = #{appKey}
+    and u.username = #{username}
+    ORDER BY re.permission
+  </select>
+  <select id="findResourcesByRoleIds" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT DISTINCT
+    re.resource_id, re.resource_name, re.type, re.url, re.parent_id, re.parent_ids, re.permission, re.status, re.insert_date, re.update_date
+    FROM sys_resource re,
+    sys_role_resource rr
+    WHERE re.resource_id = rr.resource_id
+    AND rr.role_id IN (${roleIds})
+    ORDER BY re.permission
+  </select>
 </mapper>

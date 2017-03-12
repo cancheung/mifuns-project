@@ -2,6 +2,10 @@ package com.mifuns.system.facade.mapper;
 
 import com.mifuns.common.page.CommonPageMapper;
 import com.mifuns.system.facade.entity.SysResource;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 public interface SysResourceMapper extends CommonPageMapper<SysResource>{
     /**
@@ -45,4 +49,25 @@ public interface SysResourceMapper extends CommonPageMapper<SysResource>{
      * @mbggenerated
      */
     int updateByPrimaryKey(SysResource record);
+
+
+    List<SysResource> findAll();
+
+    List<SysResource> findTypeAll(@Param("type") String type);
+
+    /**
+     * 查询资源
+     * @param ids 资源IDS
+     * @return
+     */
+    List<SysResource> findResources(@Param("ids") String ids);
+
+    List<SysResource> findResourcesByAppUser(Map<String, String> record);
+
+    /**
+     * 查询角色资源
+     * @param roleIds 角色IDS
+     * @return
+     */
+    List<SysResource> findResourcesByRoleIds(@Param("roleIds") String roleIds);
 }

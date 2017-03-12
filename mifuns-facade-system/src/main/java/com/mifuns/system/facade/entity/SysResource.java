@@ -1,5 +1,7 @@
 package com.mifuns.system.facade.entity;
 
+import com.mifuns.system.facade.enums.ResourceType;
+
 import java.util.Date;
 
 public class SysResource {
@@ -90,6 +92,27 @@ public class SysResource {
      * @mbggenerated
      */
     private Date updateDate;
+
+
+    public boolean isAvailabled() {
+        return status == 1;
+    }
+    public boolean isButton() {
+        return ResourceType.valueOf(type) == ResourceType.BUTTON;
+    }
+
+    public boolean isMenu() {
+        return ResourceType.valueOf(type) == ResourceType.MENU;
+    }
+
+    public SysResource() {
+    }
+
+    public SysResource(Long resourceId, Integer status, Date updateDate) {
+        this.resourceId = resourceId;
+        this.status = status;
+        this.updateDate = updateDate;
+    }
 
     /**
      *
