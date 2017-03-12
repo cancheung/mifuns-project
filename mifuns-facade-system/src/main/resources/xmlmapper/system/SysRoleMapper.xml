@@ -119,4 +119,32 @@
       </if>
     </where>
   </select>
+
+
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_role
+  </select>
+  <select id="findRoles" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from sys_role
+    WHERE  role_id IN  (${roleIdsStr})
+  </select>
+  <select id="findRolesByAppUser" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select distinct
+    r.role_id, r.role_name, r.description, r.status, r.insert_date, r.update_date
+    from sys_role r,
+    sys_user_app_role uar,
+    sys_app a,
+    sys_user u
+    where r.role_id = uar.role_id
+    and uar.app_id = a.app_id
+    and uar.user_id = u.user_id
+    <if test="appKey != null" >
+      and a.app_key = #{appKey}
+    </if>
+    and u.username = #{username}
+  </select>
 </mapper>

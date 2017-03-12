@@ -3,6 +3,10 @@ package com.mifuns.system.facade.mapper;
 import com.github.pagehelper.Page;
 import com.mifuns.common.page.CommonPageMapper;
 import com.mifuns.system.facade.entity.SysRole;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 public interface SysRoleMapper extends CommonPageMapper<SysRole> {
     /**
@@ -46,6 +50,13 @@ public interface SysRoleMapper extends CommonPageMapper<SysRole> {
      * @mbggenerated
      */
     int updateByPrimaryKey(SysRole record);
+
+
+    List<SysRole> findAll();
+
+    List<SysRole> findRoles(@Param("roleIdsStr") String roleIdsStr);
+
+    List<SysRole> findRolesByAppUser(Map<String, String> record);
 
 
 }

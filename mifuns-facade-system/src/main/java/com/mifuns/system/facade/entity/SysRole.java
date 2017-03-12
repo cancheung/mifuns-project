@@ -53,6 +53,15 @@ public class SysRole extends PageBean {
      */
     private Date updateDate;
 
+    public SysRole() {
+    }
+
+    public SysRole(Long roleId, Integer status, Date updateDate) {
+        this.roleId = roleId;
+        this.status = status;
+        this.updateDate = updateDate;
+    }
+
     /**
      *
      * sys_role.role_id
