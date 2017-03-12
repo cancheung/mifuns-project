@@ -59,6 +59,12 @@ public class SysApp {
      */
     private Date updateDate;
 
+    public SysApp(Long appId, Integer status, Date updateDate) {
+        this.appId = appId;
+        this.status = status;
+        this.updateDate = updateDate;
+    }
+
     /**
      *
      * sys_app.app_id

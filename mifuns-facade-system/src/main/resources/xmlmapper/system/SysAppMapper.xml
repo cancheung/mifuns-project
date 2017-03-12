@@ -114,4 +114,21 @@
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where app_id = #{appId,jdbcType=BIGINT}
   </update>
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_app
+  </select>
+  <select id="findAppByAppKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from sys_app
+    where app_key = #{appKey,jdbcType=VARCHAR}
+  </select>
+  <select id="findAppByAppSecret" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from sys_app
+    where app_secret = #{appSecret,jdbcType=VARCHAR}
+  </select>
 </mapper>

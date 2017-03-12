@@ -1,6 +1,9 @@
 package com.mifuns.system.facade.mapper;
 
 import com.mifuns.system.facade.entity.SysApp;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SysAppMapper {
     /**
@@ -44,4 +47,10 @@ public interface SysAppMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(SysApp record);
+
+    List<SysApp> findAll();
+
+    SysApp findAppByAppKey(@Param("appKey") String appKey);
+
+    SysApp findAppByAppSecret(@Param("appSecret")  String appSecret);
 }
