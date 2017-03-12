@@ -52,4 +52,15 @@ public interface SysUserMapper extends CommonPageMapper<SysUser> {
     SysUser validateUser(@Param("username")String username, @Param("password")String password);
 
     List<SysUser> querySysUserByIds(List<Long> userIds);
+
+    List<SysUser> findAll();
+
+    SysUser findByUsername(String username);
+
+    /**
+     * 拥有角色的用户列表
+     * @param roleIds
+     * @return
+     */
+    List<SysUser> findUserByRole(@Param("roleIds") String roleIds);
 }

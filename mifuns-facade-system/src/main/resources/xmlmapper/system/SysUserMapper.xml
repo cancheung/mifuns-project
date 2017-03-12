@@ -206,6 +206,26 @@
     </where>
   </select>
 
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+  </select>
+  <select id="findByUsername" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM sys_user
+    WHERE username = #{username,jdbcType=VARCHAR}
+  </select>
+  <select id="findUserByRole" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT DISTINCT
+    u.user_id, u.organization_id, u.username, u.password,
+    u.password password, u.salt, u.locked, u.phone, u.email, u.status, u.insert_date, u.update_date
+    FROM sys_user_app_role uar, sys_user u
+    WHERE uar.user_id = u.user_id
+    AND uar.role_id IN (${roleIds})
+  </select>
+
 
 
 

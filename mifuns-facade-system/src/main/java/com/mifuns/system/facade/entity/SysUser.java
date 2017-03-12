@@ -93,6 +93,33 @@ public class SysUser extends PageBean {
      */
     private Date updateDate;
 
+    public SysUser(){
+
+    }
+
+    public SysUser(Long userId, Integer locked, Date updateDate) {
+        this.userId= userId;
+        this.locked = locked;
+        this.updateDate = updateDate;
+    }
+
+
+    /**
+     * 是否锁定
+     * @return
+     */
+    public boolean isLock() {
+        return this.locked == 1;
+    }
+
+    /**
+     * 用户名 加盐
+     * @return
+     */
+    public String getCredentialsSalt() {
+        return username + salt;
+    }
+
     /**
      *
      * sys_user.user_id
