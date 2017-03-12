@@ -34,6 +34,10 @@
 
     <import resource="classpath:spring/common-db.xml"></import>
     <import resource="classpath:spring/seckill-db.xml"></import>
+
+    <import resource="classpath:spring/spring-redis.xml"></import>
+    <import resource="classpath:spring/spring-redis-template.xml"></import>
+
     <import resource="classpath:spring/spring-service-customer-mybatis.xml"></import>
     <import resource="classpath:spring/spring-service-system-mybatis.xml"></import>
 
