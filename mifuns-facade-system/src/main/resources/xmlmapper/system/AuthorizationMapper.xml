@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mifuns.system.facade.mapper.AuthorizationMapper" >
+  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.Authorization" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="app_id" property="appId" jdbcType="BIGINT" />
+    <result column="role_id" property="roleId" jdbcType="BIGINT" />
+    <result column="insert_date" property="insertDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, app_id, role_id, insert_date, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_app_role
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_user_app_role
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mifuns.system.facade.entity.Authorization" >
+    insert into sys_user_app_role (id, user_id, app_id, 
+      role_id, insert_date, update_date
+      )
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{appId,jdbcType=BIGINT}, 
+      #{roleId,jdbcType=BIGINT}, #{insertDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.Authorization" >
+    insert into sys_user_app_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="appId != null" >
+        app_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="insertDate != null" >
+        insert_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="appId != null" >
+        #{appId,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="insertDate != null" >
+        #{insertDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.Authorization" >
+    update sys_user_app_role
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="appId != null" >
+        app_id = #{appId,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="insertDate != null" >
+        insert_date = #{insertDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.Authorization" >
+    update sys_user_app_role
+    set user_id = #{userId,jdbcType=BIGINT},
+      app_id = #{appId,jdbcType=BIGINT},
+      role_id = #{roleId,jdbcType=BIGINT},
+      insert_date = #{insertDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user_app_role
+  </select>
+  <select id="findByAppUser" resultMap="BaseResultMap" parameterType="com.mifuns.system.facade.entity.Authorization" >
+    select
+    <include refid="Base_Column_List" />
+    from sys_user_app_role
+    where 1 = 1
+    <if test="id != null">
+      AND id = #{id,jdbcType=BIGINT}
+    </if>
+    <if test="userId != null" >
+      AND user_id = #{userId,jdbcType=BIGINT}
+    </if>
+    <if test="appId != null" >
+      AND app_id = #{appId,jdbcType=BIGINT}
+    </if>
+    <if test="roleId != null" >
+      AND role_id = #{roleId,jdbcType=BIGINT}
+    </if>
+    <if test="insertDate != null" >
+      AND insert_date = #{insertDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateDate != null" >
+      AND update_date = #{updateDate,jdbcType=TIMESTAMP}
+    </if>
+  </select>
+
+  <insert id="saveAuthorization" parameterType="java.util.List" >
+    insert into sys_user_app_role (
+    user_id, app_id, role_id, insert_date
+    )
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (
+      #{item.userId,jdbcType=BIGINT},
+      #{item.appId,jdbcType=BIGINT},
+      #{item.roleId,jdbcType=BIGINT},
+      NOW()
+      )
+    </foreach>
+  </insert>
+  <delete id="delete" parameterType="com.mifuns.system.facade.entity.Authorization" >
+    DELETE FROM sys_user_app_role
+    WHERE user_id = #{userId,jdbcType=BIGINT}
+    AND app_id = #{appId,jdbcType=BIGINT}
+    AND role_id = #{roleId,jdbcType=BIGINT}
+  </delete>
+</mapper>
