@@ -1,4 +1,4 @@
-package com.mifuns.common.shiro.credentials;
+package com.mifuns.security.shiro.credentials;
 
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

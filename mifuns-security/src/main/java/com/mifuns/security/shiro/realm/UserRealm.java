@@ -1,4 +1,4 @@
-package com.mifuns.common.shiro.realm;
+package com.mifuns.security.shiro.realm;
 
 import com.mifuns.system.facade.entity.SysUser;
 import com.mifuns.system.facade.service.AuthorizationService;
