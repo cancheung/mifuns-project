@@ -41,6 +41,8 @@
     <import resource="classpath:spring/spring-service-customer-mybatis.xml"></import>
     <import resource="classpath:spring/spring-service-system-mybatis.xml"></import>
 
+    <import resource="classpath:spring/shiro-common.xml"></import>
+
 
 
     <context:annotation-config/>

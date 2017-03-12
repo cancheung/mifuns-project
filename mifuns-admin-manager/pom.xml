@@ -33,15 +33,17 @@
 
         <dependency>
             <groupId>com.mifuns</groupId>
-            <artifactId>mifuns-common-web</artifactId>
+            <artifactId>mifuns-cache</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.mifuns</groupId>
-            <artifactId>mifuns-security</artifactId>
+            <artifactId>mifuns-common-web</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+
 
         <dependency>
             <groupId>com.mifuns</groupId>
@@ -64,6 +66,12 @@
         <dependency>
             <groupId>com.mifuns</groupId>
             <artifactId>mifuns-service-system</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mifuns</groupId>
+            <artifactId>mifuns-security</artifactId>
             <version>${project.version}</version>
         </dependency>
 

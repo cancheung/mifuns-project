@@ -15,7 +15,6 @@
     <context:component-scan base-package="com.mifuns.admin.controller"/>
 
     <import resource="classpath:spring/mvc-common.xml"></import>
-    <import resource="classpath:spring/shiro-common.xml"></import>
     
     
 </beans>
