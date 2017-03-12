@@ -122,6 +122,7 @@
         <property name="filterChainDefinitions">
             <value>
                 /favicon.ico = anon
+                /live.do = anon
                 /captcha/** = anon
                 /static/** = anon
                 /login = authc
