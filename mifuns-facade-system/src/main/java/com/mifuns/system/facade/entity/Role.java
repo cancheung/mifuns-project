@@ -4,7 +4,7 @@ import com.mifuns.common.page.PageBean;
 
 import java.util.Date;
 
-public class SysRole extends PageBean {
+public class Role extends PageBean {
     /**
      *
      * sys_role.role_id
@@ -53,10 +53,10 @@ public class SysRole extends PageBean {
      */
     private Date updateDate;
 
-    public SysRole() {
+    public Role() {
     }
 
-    public SysRole(Long roleId, Integer status, Date updateDate) {
+    public Role(Long roleId, Integer status, Date updateDate) {
         this.roleId = roleId;
         this.status = status;
         this.updateDate = updateDate;
@@ -208,7 +208,7 @@ public class SysRole extends PageBean {
 
     @Override
     public String toString() {
-        return "SysRole{" +
+        return "Role{" +
                 "roleId=" + roleId +
                 ", roleName='" + roleName + '\'' +
                 ", description='" + description + '\'' +

@@ -2,18 +2,18 @@ package com.mifuns.system.facade.vo;
 
 import com.mifuns.common.node.Node;
 import com.mifuns.common.node.NodeAttribute;
-import com.mifuns.system.facade.entity.SysResource;
+import com.mifuns.system.facade.entity.Resource;
 
 import java.util.*;
 
 /**
  * Created by miguangying on 2017/3/9.
  */
-public class SysResourceTree {
+public class ResourceTree {
     private List<Node> nodes = new LinkedList<Node>();
     private Node root = null;//根节点
-    public SysResourceTree(List<SysResource> resources){
-        for(SysResource resource:resources){
+    public ResourceTree(List<Resource> resources){
+        for(Resource resource:resources){
             Node node = new Node(resource.getResourceId(),resource.getParentId(),resource.getResourceName(),"open",
                     new NodeAttribute(null==resource.getUrl()?"":resource.getUrl(),resource.getResourceId()),
                     resource.getSerialNum());

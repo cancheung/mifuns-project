@@ -24,27 +24,27 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     private AuthorizationMapper authorizationMapper;
 
     @javax.annotation.Resource
-    private SysUserService sysUserService;
+    private UserService userService;
 
     @javax.annotation.Resource
-    private SysRoleService sysRoleService;
+    private RoleService roleService;
 
     @javax.annotation.Resource
-    private SysResourceService sysResourceService;
+    private ResourceService resourceService;
 
     @javax.annotation.Resource
-    private SysAppService sysAppService;
+    private AppService appService;
 
 
     @Override
-    public int createAuthorization(Long sysUser, Long app, String roleIds) {
+    public int createAuthorization(Long user, Long app, String roleIds) {
         Iterable<String> ids = CollectionUtil.split(roleIds);
         HashSet<String> _ids = Sets.newHashSet(ids);
         List<Authorization> saveAuths = new ArrayList<>();
         List<Authorization> all = findAll();
         for(String roleId : _ids){
             Authorization auth = new Authorization();
-            auth.setUserId(sysUser);
+            auth.setUserId(user);
             auth.setAppId(app);
             auth.setRoleId(Long.valueOf(roleId));
             if(!exist(auth, all)){
@@ -131,41 +131,41 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     @Override
     public List<Authorization> findAll() {
         List<Authorization> authorizations = authorizationMapper.findAll();
-        Map<Long, SysUser> users = sysUserService.findSysUsers();
-        Map<Long, SysRole> roles = sysRoleService.findSysRoles();
-        Map<Long, SysApp> apps = sysAppService.findSysApps();
+        Map<Long, User> users = userService.findUsers();
+        Map<Long, Role> roles = roleService.findRoles();
+        Map<Long, App> apps = appService.findApps();
         List<Authorization> list = new ArrayList<>();
         for(Authorization authorization : authorizations){
-            authorization.setSysApp(apps.get(authorization.getAppId()));
-            authorization.setSysUser(users.get(authorization.getUserId()));
-            authorization.setSysRole(roles.get(authorization.getRoleId()));
+            authorization.setApp(apps.get(authorization.getAppId()));
+            authorization.setUser(users.get(authorization.getUserId()));
+            authorization.setRole(roles.get(authorization.getRoleId()));
             list.add(authorization);
         }
         return list;
     }
 
     @Override
-    public List<SysRole> findRoles(String appKey, String username) {
-        return sysRoleService.findSysRolesByAppUser(appKey,username);
+    public List<Role> findRoles(String appKey, String username) {
+        return roleService.findRolesByAppUser(appKey,username);
     }
 
     @Override
-    public List<SysRole> findAllRoles(String username) {
-        return sysRoleService.findAllSysRolesByUser(username);
+    public List<Role> findAllRoles(String username) {
+        return roleService.findAllRolesByUser(username);
     }
 
     @Override
-    public List<SysResource> findResources(String appKey, String username) {
-        return sysResourceService.findResourcesByAppUser(appKey, username);
+    public List<Resource> findResources(String appKey, String username) {
+        return resourceService.findResourcesByAppUser(appKey, username);
     }
 
     @Override
     public Boolean isUserAtRole(String appKey, String username, String roleIds) {
-        /*List<SysResource> userResources = findResources(appKey,username);
+        /*List<Resource> userResources = findResources(appKey,username);
         if(userResources == null) {
             return false;
         }
-        List<SysResource> roleResources = sysResourceService.findResourcesByRoleIds(roleIds);
+        List<Resource> roleResources = resourceService.findResourcesByRoleIds(roleIds);
         if(roleResources == null) {
             return false;
         }
@@ -174,8 +174,8 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     }
 
     @Override
-    public List<SysResource> findMenusByAppUser(String appKey, String username) {
-        List<SysResource> menus = new ArrayList<>();
+    public List<Resource> findMenusByAppUser(String appKey, String username) {
+        List<Resource> menus = new ArrayList<>();
         return menus;
     }
 

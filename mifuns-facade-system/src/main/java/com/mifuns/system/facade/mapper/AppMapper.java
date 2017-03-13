@@ -1,11 +1,11 @@
 package com.mifuns.system.facade.mapper;
 
-import com.mifuns.system.facade.entity.SysApp;
+import com.mifuns.system.facade.entity.App;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface SysAppMapper {
+public interface AppMapper {
     /**
      * sys_app
      *
@@ -18,39 +18,39 @@ public interface SysAppMapper {
      *
      * @mbggenerated
      */
-    int insert(SysApp record);
+    int insert(App record);
 
     /**
      * sys_app
      *
      * @mbggenerated
      */
-    int insertSelective(SysApp record);
+    int insertSelective(App record);
 
     /**
      * sys_app
      *
      * @mbggenerated
      */
-    SysApp selectByPrimaryKey(Long appId);
+    App selectByPrimaryKey(Long appId);
 
     /**
      * sys_app
      *
      * @mbggenerated
      */
-    int updateByPrimaryKeySelective(SysApp record);
+    int updateByPrimaryKeySelective(App record);
 
     /**
      * sys_app
      *
      * @mbggenerated
      */
-    int updateByPrimaryKey(SysApp record);
+    int updateByPrimaryKey(App record);
 
-    List<SysApp> findAll();
+    List<App> findAll();
 
-    SysApp findAppByAppKey(@Param("appKey") String appKey);
+    App findAppByAppKey(@Param("appKey") String appKey);
 
-    SysApp findAppByAppSecret(@Param("appSecret")  String appSecret);
+    App findAppByAppSecret(@Param("appSecret") String appSecret);
 }

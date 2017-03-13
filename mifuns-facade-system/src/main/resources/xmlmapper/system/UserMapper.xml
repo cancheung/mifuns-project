@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mifuns.system.facade.mapper.SysUserMapper" >
-  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.SysUser" >
+<mapper namespace="com.mifuns.system.facade.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.User" >
     <id column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="organization_id" property="organizationId" jdbcType="BIGINT" />
     <result column="username" property="username" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from sys_user
     where user_id = #{userId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mifuns.system.facade.entity.SysUser" >
+  <insert id="insert" parameterType="com.mifuns.system.facade.entity.User" >
     insert into sys_user (user_id, organization_id, username, 
       password, salt, locked, 
       phone, email, status, 
@@ -38,7 +38,7 @@
       #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
       #{insertDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.SysUser" >
+  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.User" >
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.SysUser" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.User" >
     update sys_user
     <set >
       <if test="organizationId != null" >
@@ -147,7 +147,7 @@
     </set>
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.SysUser" >
+  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.User" >
     update sys_user
     set organization_id = #{organizationId,jdbcType=BIGINT},
       username = #{username,jdbcType=VARCHAR},
@@ -171,7 +171,7 @@
     and status = 1
   </select>
 
-  <select id="querySysUserByIds" resultMap="BaseResultMap" >
+  <select id="queryUserByIds" resultMap="BaseResultMap" >
     select
     <include refid="Base_Column_List" />
     from sys_user
@@ -183,7 +183,7 @@
   </select>
 
 
-  <select id="queryPageList" resultMap="BaseResultMap" parameterType="com.mifuns.system.facade.entity.SysUser" >
+  <select id="queryPageList" resultMap="BaseResultMap" parameterType="com.mifuns.system.facade.entity.User" >
     select
     <include refid="Base_Column_List" />
     from sys_user

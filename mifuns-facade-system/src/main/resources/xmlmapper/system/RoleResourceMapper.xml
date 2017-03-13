@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mifuns.system.facade.mapper.SysRoleResourceMapper" >
-  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.SysRoleResource" >
+<mapper namespace="com.mifuns.system.facade.mapper.RoleResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.RoleResource" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="role_id" property="roleId" jdbcType="BIGINT" />
     <result column="resource_id" property="resourceId" jdbcType="BIGINT" />
@@ -22,7 +22,7 @@
     delete from sys_role_resource
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mifuns.system.facade.entity.SysRoleResource" >
+  <insert id="insert" parameterType="com.mifuns.system.facade.entity.RoleResource" >
     insert into sys_role_resource (id, role_id, resource_id, 
       status, insert_date, update_date
       )
@@ -30,7 +30,7 @@
       #{status,jdbcType=INTEGER}, #{insertDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.SysRoleResource" >
+  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.RoleResource" >
     insert into sys_role_resource
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.SysRoleResource" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.RoleResource" >
     update sys_role_resource
     <set >
       <if test="roleId != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.SysRoleResource" >
+  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.RoleResource" >
     update sys_role_resource
     set role_id = #{roleId,jdbcType=BIGINT},
       resource_id = #{resourceId,jdbcType=BIGINT},

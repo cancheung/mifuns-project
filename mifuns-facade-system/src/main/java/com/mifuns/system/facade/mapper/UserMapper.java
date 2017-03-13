@@ -1,12 +1,12 @@
 package com.mifuns.system.facade.mapper;
 
 import com.mifuns.common.page.CommonPageMapper;
-import com.mifuns.system.facade.entity.SysUser;
+import com.mifuns.system.facade.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface SysUserMapper extends CommonPageMapper<SysUser> {
+public interface UserMapper extends CommonPageMapper<User> {
     /**
      * sys_user
      *
@@ -19,48 +19,48 @@ public interface SysUserMapper extends CommonPageMapper<SysUser> {
      *
      * @mbggenerated
      */
-    int insert(SysUser record);
+    int insert(User record);
 
     /**
      * sys_user
      *
      * @mbggenerated
      */
-    int insertSelective(SysUser record);
+    int insertSelective(User record);
 
     /**
      * sys_user
      *
      * @mbggenerated
      */
-    SysUser selectByPrimaryKey(Long userId);
+    User selectByPrimaryKey(Long userId);
 
     /**
      * sys_user
      *
      * @mbggenerated
      */
-    int updateByPrimaryKeySelective(SysUser record);
+    int updateByPrimaryKeySelective(User record);
 
     /**
      * sys_user
      *
      * @mbggenerated
      */
-    int updateByPrimaryKey(SysUser record);
+    int updateByPrimaryKey(User record);
 
-    SysUser validateUser(@Param("username")String username, @Param("password")String password);
+    User validateUser(@Param("username") String username, @Param("password") String password);
 
-    List<SysUser> querySysUserByIds(List<Long> userIds);
+    List<User> queryUserByIds(List<Long> userIds);
 
-    List<SysUser> findAll();
+    List<User> findAll();
 
-    SysUser findByUsername(String username);
+    User findByUsername(String username);
 
     /**
      * 拥有角色的用户列表
      * @param roleIds
      * @return
      */
-    List<SysUser> findUserByRole(@Param("roleIds") String roleIds);
+    List<User> findUserByRole(@Param("roleIds") String roleIds);
 }

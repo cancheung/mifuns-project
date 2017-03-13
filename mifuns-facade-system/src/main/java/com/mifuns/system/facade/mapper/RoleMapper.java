@@ -1,14 +1,13 @@
 package com.mifuns.system.facade.mapper;
 
-import com.github.pagehelper.Page;
 import com.mifuns.common.page.CommonPageMapper;
-import com.mifuns.system.facade.entity.SysRole;
+import com.mifuns.system.facade.entity.Role;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
 
-public interface SysRoleMapper extends CommonPageMapper<SysRole> {
+public interface RoleMapper extends CommonPageMapper<Role> {
     /**
      * sys_role
      *
@@ -21,42 +20,42 @@ public interface SysRoleMapper extends CommonPageMapper<SysRole> {
      *
      * @mbggenerated
      */
-    int insert(SysRole record);
+    int insert(Role record);
 
     /**
      * sys_role
      *
      * @mbggenerated
      */
-    int insertSelective(SysRole record);
+    int insertSelective(Role record);
 
     /**
      * sys_role
      *
      * @mbggenerated
      */
-    SysRole selectByPrimaryKey(Long roleId);
+    Role selectByPrimaryKey(Long roleId);
 
     /**
      * sys_role
      *
      * @mbggenerated
      */
-    int updateByPrimaryKeySelective(SysRole record);
+    int updateByPrimaryKeySelective(Role record);
 
     /**
      * sys_role
      *
      * @mbggenerated
      */
-    int updateByPrimaryKey(SysRole record);
+    int updateByPrimaryKey(Role record);
 
 
-    List<SysRole> findAll();
+    List<Role> findAll();
 
-    List<SysRole> findRoles(@Param("roleIdsStr") String roleIdsStr);
+    List<Role> findRoles(@Param("roleIdsStr") String roleIdsStr);
 
-    List<SysRole> findRolesByAppUser(Map<String, String> record);
+    List<Role> findRolesByAppUser(Map<String, String> record);
 
 
 }

@@ -18,7 +18,7 @@ public class Authorization {
      * @mbggenerated
      */
     private Long userId;
-    private SysUser sysUser;
+    private User user;
 
     /**
      * 应用ID
@@ -27,7 +27,7 @@ public class Authorization {
      * @mbggenerated
      */
     private Long appId;
-    private SysApp sysApp;
+    private App app;
 
     /**
      * 角色ID
@@ -36,7 +36,7 @@ public class Authorization {
      * @mbggenerated
      */
     private Long roleId;
-    private SysRole sysRole;
+    private Role role;
 
     /**
      * 插入时间
@@ -198,27 +198,27 @@ public class Authorization {
         this.updateDate = updateDate;
     }
 
-    public SysUser getSysUser() {
-        return sysUser;
+    public User getUser() {
+        return user;
     }
 
-    public void setSysUser(SysUser sysUser) {
-        this.sysUser = sysUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public SysApp getSysApp() {
-        return sysApp;
+    public App getApp() {
+        return app;
     }
 
-    public void setSysApp(SysApp sysApp) {
-        this.sysApp = sysApp;
+    public void setApp(App app) {
+        this.app = app;
     }
 
-    public SysRole getSysRole() {
-        return sysRole;
+    public Role getRole() {
+        return role;
     }
 
-    public void setSysRole(SysRole sysRole) {
-        this.sysRole = sysRole;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

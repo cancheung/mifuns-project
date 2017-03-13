@@ -1,7 +1,7 @@
 package com.mifuns.system.facade.service;
 
 import com.mifuns.common.service.BaseCommonService;
-import com.mifuns.system.facade.entity.SysUser;
+import com.mifuns.system.facade.entity.User;
 
 import java.util.List;
 import java.util.Map;
@@ -9,32 +9,32 @@ import java.util.Map;
 /**
  * Created by miguangying on 2017/3/3.
  */
-public interface SysUserService extends BaseCommonService {
-    SysUser queryUserByPassword(String username,String password);
+public interface UserService extends BaseCommonService {
+    User queryUserByPassword(String username, String password);
     /**
      * 创建用户
      * @param user
      */
-    public SysUser createSysUser(SysUser sysUser);
+    public User createUser(User user);
 
-    public SysUser updateSysUser(SysUser sysUser);
+    public User updateUser(User user);
 
     /**
      * 锁定账户，删除
      * @param userId
      */
-    int deleteSysUser(Long userId);
+    int deleteUser(Long userId);
 
     /**
      * 批量禁用用户
      * @param userIds
      */
-    int disableSysUsers(String userIds);
+    int disableUsers(String userIds);
     /**
      * 完全清除用户
      * @param userId
      */
-    int cleanSysUser(Long userId);
+    int cleanUser(Long userId);
 
     /**
      * 修改密码
@@ -48,31 +48,31 @@ public interface SysUserService extends BaseCommonService {
      * @param userId
      * @return
      */
-    SysUser findOne(Long userId);
+    User findOne(Long userId);
 
     /**
      * 查询全部用户，包含锁定
      * @return
      */
-    List<SysUser> findAll();
+    List<User> findAll();
 
     /**
      * 根据用户名查找用户
      * @param username
      * @return
      */
-    public SysUser findByUsername(String username);
+    public User findByUsername(String username);
 
     /**
      * 返回用户ID，User 键值对
      * @return
      */
-    Map<Long, SysUser> findSysUsers();
+    Map<Long, User> findUsers();
 
     /**
      * 拥有角色的用户列表
      * @param roleIds 角色ID，多个逗号隔开
      * @return
      */
-    List<SysUser> findUserByRole(String roleIds);
+    List<User> findUserByRole(String roleIds);
 }

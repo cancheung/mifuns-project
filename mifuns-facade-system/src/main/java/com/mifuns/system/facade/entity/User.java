@@ -4,7 +4,7 @@ import com.mifuns.common.page.PageBean;
 
 import java.util.Date;
 
-public class SysUser extends PageBean {
+public class User extends PageBean {
     /**
      *
      * sys_user.user_id
@@ -93,11 +93,11 @@ public class SysUser extends PageBean {
      */
     private Date updateDate;
 
-    public SysUser(){
+    public User(){
 
     }
 
-    public SysUser(Long userId, Integer locked, Date updateDate) {
+    public User(Long userId, Integer locked, Date updateDate) {
         this.userId= userId;
         this.locked = locked;
         this.updateDate = updateDate;

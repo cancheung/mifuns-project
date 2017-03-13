@@ -2,7 +2,7 @@ package com.mifuns.system.facade.entity;
 
 import java.util.Date;
 
-public class SysRoleResource {
+public class RoleResource {
     /**
      *
      * sys_role_resource.id

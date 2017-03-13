@@ -1,7 +1,7 @@
 package com.mifuns.admin.controller;
 
-import com.mifuns.system.facade.entity.SysUser;
-import com.mifuns.system.facade.service.SysUserService;
+import com.mifuns.system.facade.entity.User;
+import com.mifuns.system.facade.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 public class IndexController {
 
     @Resource
-    SysUserService sysUserService;
+    UserService userService;
 
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)
@@ -31,8 +31,8 @@ public class IndexController {
             return  ("redirect:/index");
         }
 
-        SysUser sysUser = sysUserService.queryUserByPassword(username,password);
-        if(null == sysUser){
+        User user = userService.queryUserByPassword(username,password);
+        if(null == user){
             return "/security/login";
         }
 

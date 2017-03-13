@@ -8,11 +8,11 @@ import java.util.List;
  */
 public class PermissionEntity implements Serializable {
     private String username;
-    private List<SysResource> resources;
-    private List<SysRole> roles;
+    private List<Resource> resources;
+    private List<Role> roles;
     private String responseTime;
 
-    public PermissionEntity(String username, List<SysResource> resources, List<SysRole> roles, String responseTime) {
+    public PermissionEntity(String username, List<Resource> resources, List<Role> roles, String responseTime) {
         this.username = username;
         this.resources = resources;
         this.roles = roles;
@@ -27,19 +27,19 @@ public class PermissionEntity implements Serializable {
         this.username = username;
     }
 
-    public List<SysResource> getResources() {
+    public List<Resource> getResources() {
         return resources;
     }
 
-    public void setResources(List<SysResource> resources) {
+    public void setResources(List<Resource> resources) {
         this.resources = resources;
     }
 
-    public List<SysRole> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<SysRole> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 

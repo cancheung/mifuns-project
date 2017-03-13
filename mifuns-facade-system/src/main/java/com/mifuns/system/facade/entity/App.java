@@ -2,7 +2,7 @@ package com.mifuns.system.facade.entity;
 
 import java.util.Date;
 
-public class SysApp {
+public class App {
     /**
      *
      * sys_app.app_id
@@ -59,7 +59,7 @@ public class SysApp {
      */
     private Date updateDate;
 
-    public SysApp(Long appId, Integer status, Date updateDate) {
+    public App(Long appId, Integer status, Date updateDate) {
         this.appId = appId;
         this.status = status;
         this.updateDate = updateDate;

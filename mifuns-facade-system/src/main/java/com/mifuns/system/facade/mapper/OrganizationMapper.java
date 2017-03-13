@@ -1,8 +1,8 @@
 package com.mifuns.system.facade.mapper;
 
-import com.mifuns.system.facade.entity.SysOrganization;
+import com.mifuns.system.facade.entity.Organization;
 
-public interface SysOrganizationMapper {
+public interface OrganizationMapper {
     /**
      * sys_organization
      *
@@ -15,33 +15,33 @@ public interface SysOrganizationMapper {
      *
      * @mbggenerated
      */
-    int insert(SysOrganization record);
+    int insert(Organization record);
 
     /**
      * sys_organization
      *
      * @mbggenerated
      */
-    int insertSelective(SysOrganization record);
+    int insertSelective(Organization record);
 
     /**
      * sys_organization
      *
      * @mbggenerated
      */
-    SysOrganization selectByPrimaryKey(Long organizationId);
+    Organization selectByPrimaryKey(Long organizationId);
 
     /**
      * sys_organization
      *
      * @mbggenerated
      */
-    int updateByPrimaryKeySelective(SysOrganization record);
+    int updateByPrimaryKeySelective(Organization record);
 
     /**
      * sys_organization
      *
      * @mbggenerated
      */
-    int updateByPrimaryKey(SysOrganization record);
+    int updateByPrimaryKey(Organization record);
 }

@@ -1,13 +1,13 @@
 package com.mifuns.system.facade.mapper;
 
 import com.mifuns.common.page.CommonPageMapper;
-import com.mifuns.system.facade.entity.SysResource;
+import com.mifuns.system.facade.entity.Resource;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
 
-public interface SysResourceMapper extends CommonPageMapper<SysResource>{
+public interface ResourceMapper extends CommonPageMapper<Resource>{
     /**
      * sys_resource
      *
@@ -20,54 +20,54 @@ public interface SysResourceMapper extends CommonPageMapper<SysResource>{
      *
      * @mbggenerated
      */
-    int insert(SysResource record);
+    int insert(Resource record);
 
     /**
      * sys_resource
      *
      * @mbggenerated
      */
-    int insertSelective(SysResource record);
+    int insertSelective(Resource record);
 
     /**
      * sys_resource
      *
      * @mbggenerated
      */
-    SysResource selectByPrimaryKey(Long resourceId);
+    Resource selectByPrimaryKey(Long resourceId);
 
     /**
      * sys_resource
      *
      * @mbggenerated
      */
-    int updateByPrimaryKeySelective(SysResource record);
+    int updateByPrimaryKeySelective(Resource record);
 
     /**
      * sys_resource
      *
      * @mbggenerated
      */
-    int updateByPrimaryKey(SysResource record);
+    int updateByPrimaryKey(Resource record);
 
 
-    List<SysResource> findAll();
+    List<Resource> findAll();
 
-    List<SysResource> findTypeAll(@Param("type") String type);
+    List<Resource> findTypeAll(@Param("type") String type);
 
     /**
      * 查询资源
      * @param ids 资源IDS
      * @return
      */
-    List<SysResource> findResources(@Param("ids") String ids);
+    List<Resource> findResources(@Param("ids") String ids);
 
-    List<SysResource> findResourcesByAppUser(Map<String, String> record);
+    List<Resource> findResourcesByAppUser(Map<String, String> record);
 
     /**
      * 查询角色资源
      * @param roleIds 角色IDS
      * @return
      */
-    List<SysResource> findResourcesByRoleIds(@Param("roleIds") String roleIds);
+    List<Resource> findResourcesByRoleIds(@Param("roleIds") String roleIds);
 }

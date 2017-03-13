@@ -1,6 +1,6 @@
 package com.mifuns.system.facade.service;
 
-import com.mifuns.system.facade.entity.SysApp;
+import com.mifuns.system.facade.entity.App;
 
 import java.util.List;
 import java.util.Map;
@@ -8,9 +8,9 @@ import java.util.Map;
 /**
  * Created by miguangying on 2017/3/12.
  */
-public interface SysAppService {
-    public SysApp createApp(SysApp app);
-    public SysApp updateApp(SysApp app);
+public interface AppService {
+    public App createApp(App app);
+    public App updateApp(App app);
     int deleteApp(Long appId);
 
     /**
@@ -25,21 +25,21 @@ public interface SysAppService {
      */
     int disableApps(String appIds);
 
-    public SysApp findOne(Long appId);
-    public List<SysApp> findAll();
+    public App findOne(Long appId);
+    public List<App> findAll();
 
     /**
      * 根据appKey查找AppId
      * @param appKey
      * @return
      */
-    public SysApp findAppByAppKey(String appKey);
+    public App findAppByAppKey(String appKey);
 
-    public SysApp findAppByAppSecret(String appSecret);
+    public App findAppByAppSecret(String appSecret);
 
     /**
      *
      * @return
      */
-    Map<Long, SysApp> findSysApps();
+    Map<Long, App> findApps();
 }

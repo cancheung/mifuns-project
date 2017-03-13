@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mifuns.system.facade.mapper.SysResourceMapper" >
-  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.SysResource" >
+<mapper namespace="com.mifuns.system.facade.mapper.ResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.Resource" >
     <id column="resource_id" property="resourceId" jdbcType="BIGINT" />
     <result column="resource_name" property="resourceName" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from sys_resource
     where resource_id = #{resourceId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mifuns.system.facade.entity.SysResource" >
+  <insert id="insert" parameterType="com.mifuns.system.facade.entity.Resource" >
     insert into sys_resource (resource_id, resource_name, type,
     url, parent_id, parent_ids,
     serial_num, permission, status,
@@ -38,7 +38,7 @@
     #{serialNum,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
     #{insertDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.SysResource" >
+  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.Resource" >
     insert into sys_resource
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="resourceId != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.SysResource" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.Resource" >
     update sys_resource
     <set >
       <if test="resourceName != null" >
@@ -147,7 +147,7 @@
     </set>
     where resource_id = #{resourceId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.SysResource" >
+  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.Resource" >
     update sys_resource
     set resource_name = #{resourceName,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
@@ -162,7 +162,7 @@
     where resource_id = #{resourceId,jdbcType=BIGINT}
   </update>
 
-  <select id="queryPageList" resultMap="BaseResultMap" parameterType="com.mifuns.system.facade.entity.SysResource" >
+  <select id="queryPageList" resultMap="BaseResultMap" parameterType="com.mifuns.system.facade.entity.Resource" >
     select
     <include refid="Base_Column_List" />
     from sys_resource

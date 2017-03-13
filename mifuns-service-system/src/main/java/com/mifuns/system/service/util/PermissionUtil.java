@@ -1,7 +1,7 @@
 package com.mifuns.system.service.util;
 
-import com.mifuns.system.facade.entity.SysResource;
-import com.mifuns.system.facade.entity.SysRole;
+import com.mifuns.system.facade.entity.Resource;
+import com.mifuns.system.facade.entity.Role;
 import org.apache.shiro.authz.permission.WildcardPermission;
 import org.springframework.util.StringUtils;
 
@@ -24,7 +24,7 @@ public abstract class PermissionUtil {
      * @param resource
      * @return
      */
-    public static boolean hasPermission(Set<String> permissions, SysResource resource) {
+    public static boolean hasPermission(Set<String> permissions, Resource resource) {
         if(StringUtils.isEmpty(resource.getPermission())) {
             return true;
         }
@@ -44,8 +44,8 @@ public abstract class PermissionUtil {
      * @param checkResources 包含的资源
      * @return
      */
-    public static boolean hasPermission(List<SysResource> useResources, List<SysResource> checkResources){
-        for (SysResource resource : useResources){
+    public static boolean hasPermission(List<Resource> useResources, List<Resource> checkResources){
+        for (Resource resource : useResources){
             if(hasPermission(resource, checkResources)){
                 return true;
             }
@@ -59,9 +59,9 @@ public abstract class PermissionUtil {
      * @param checkResources 包含的资源
      * @return
      */
-    public static boolean hasPermission(SysResource useResource, List<SysResource> checkResources){
+    public static boolean hasPermission(Resource useResource, List<Resource> checkResources){
         WildcardPermission p1 = getWildcardPermission(useResource.getPermission());
-        for(SysResource checkResource : checkResources){
+        for(Resource checkResource : checkResources){
             WildcardPermission p2 = getWildcardPermission(checkResource.getPermission());
             if(p1.implies(p2)){
                 return true;
@@ -73,17 +73,17 @@ public abstract class PermissionUtil {
         return new WildcardPermission(permission);
     }
 
-    public static Set<String> getPermissionsByResources(List<SysResource> resourceList){
+    public static Set<String> getPermissionsByResources(List<Resource> resourceList){
         Set<String> permissions = new HashSet<>();
-        for(SysResource resource : resourceList){
+        for(Resource resource : resourceList){
             permissions.add(resource.getPermission());
         }
         return permissions;
     }
 
-    public static Set<String> getRoleNameByRoles(List<SysRole> roleList){
+    public static Set<String> getRoleNameByRoles(List<Role> roleList){
         Set<String> roles = new HashSet<>();
-        for(SysRole role : roleList){
+        for(Role role : roleList){
             roles.add(role.getRoleName());
         }
         return roles;

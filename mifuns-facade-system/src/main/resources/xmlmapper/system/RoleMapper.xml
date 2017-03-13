@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mifuns.system.facade.mapper.SysRoleMapper" >
-  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.SysRole" >
+<mapper namespace="com.mifuns.system.facade.mapper.RoleMapper" >
+  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.Role" >
     <id column="role_id" property="roleId" jdbcType="BIGINT" />
     <result column="role_name" property="roleName" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from sys_role
     where role_id = #{roleId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mifuns.system.facade.entity.SysRole" >
+  <insert id="insert" parameterType="com.mifuns.system.facade.entity.Role" >
     insert into sys_role (role_id, role_name, description, 
       status, insert_date, update_date
       )
@@ -30,7 +30,7 @@
       #{status,jdbcType=INTEGER}, #{insertDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.SysRole" >
+  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.Role" >
     insert into sys_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="roleId != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.SysRole" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.Role" >
     update sys_role
     <set >
       <if test="roleName != null" >
@@ -94,7 +94,7 @@
     </set>
     where role_id = #{roleId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.SysRole" >
+  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.Role" >
     update sys_role
     set role_name = #{roleName,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
@@ -103,7 +103,7 @@
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where role_id = #{roleId,jdbcType=BIGINT}
   </update>
-  <select id="queryPageList" resultMap="BaseResultMap" parameterType="com.mifuns.system.facade.entity.SysRole" >
+  <select id="queryPageList" resultMap="BaseResultMap" parameterType="com.mifuns.system.facade.entity.Role" >
     select
     <include refid="Base_Column_List" />
     from sys_role

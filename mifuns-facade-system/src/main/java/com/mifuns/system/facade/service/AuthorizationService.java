@@ -3,8 +3,8 @@ package com.mifuns.system.facade.service;
 import com.mifuns.common.service.BaseCommonService;
 import com.mifuns.system.facade.entity.Authorization;
 import com.mifuns.system.facade.entity.PermissionEntity;
-import com.mifuns.system.facade.entity.SysResource;
-import com.mifuns.system.facade.entity.SysRole;
+import com.mifuns.system.facade.entity.Resource;
+import com.mifuns.system.facade.entity.Role;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public interface AuthorizationService {
      * @param roleIds
      * @return
      */
-    int createAuthorization(Long sysUser, Long app, String roleIds);
+    int createAuthorization(Long user, Long app, String roleIds);
 
 
     /**
@@ -59,14 +59,14 @@ public interface AuthorizationService {
      * @param username
      * @return
      */
-    public List<SysRole> findRoles(String appKey, String username);
+    public List<Role> findRoles(String appKey, String username);
 
     /**
      * 获取用户的角色列表
      * @param username
      * @return
      */
-    public List<SysRole> findAllRoles(String username);
+    public List<Role> findAllRoles(String username);
 
 
     /**
@@ -75,7 +75,7 @@ public interface AuthorizationService {
      * @param username
      * @return
      */
-    public List<SysResource> findResources(String appKey, String username);
+    public List<Resource> findResources(String appKey, String username);
 
     /**
      * 判断用户是否拥有权限
@@ -94,7 +94,7 @@ public interface AuthorizationService {
      * @param username
      * @return
      */
-    List<SysResource> findMenusByAppUser(String appKey, String username);
+    List<Resource> findMenusByAppUser(String appKey, String username);
 
     PermissionEntity getPermissionEntity(String appKey, String username);
 }

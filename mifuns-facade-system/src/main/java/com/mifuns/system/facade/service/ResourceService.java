@@ -2,7 +2,7 @@ package com.mifuns.system.facade.service;
 
 
 import com.mifuns.common.service.BaseCommonService;
-import com.mifuns.system.facade.entity.SysResource;
+import com.mifuns.system.facade.entity.Resource;
 
 import java.util.List;
 import java.util.Map;
@@ -11,9 +11,9 @@ import java.util.Set;
 /**
  * Created by miguangying on 2017/3/3.
  */
-public interface SysResourceService extends BaseCommonService {
-    public SysResource createResource(SysResource resource);
-    public SysResource updateResource(SysResource resource);
+public interface ResourceService extends BaseCommonService {
+    public Resource createResource(Resource resource);
+    public Resource updateResource(Resource resource);
     public int deleteResource(Long resourceId);
 
     /**
@@ -28,9 +28,9 @@ public interface SysResourceService extends BaseCommonService {
      */
     int disableResources(String resourceIds);
 
-    SysResource findOne(Long resourceId);
-    List<SysResource> findAll();
-    public List<SysResource> findResources(String ids);
+    Resource findOne(Long resourceId);
+    List<Resource> findAll();
+    public List<Resource> findResources(String ids);
 
     /**
      * 得到资源对应的权限字符串
@@ -45,16 +45,16 @@ public interface SysResourceService extends BaseCommonService {
      * @param permissions
      * @return
      */
-    List<SysResource> findMenus(Set<String> permissions);
+    List<Resource> findMenus(Set<String> permissions);
 
-    public List<SysResource> findMenuAll();
+    public List<Resource> findMenuAll();
     /**
      * 根据用户权限得到菜单
      * @param allResources 全部资源
      * @param permissions
      * @return
      */
-    public List<SysResource> findMenus(List<SysResource> allResources, Set<String> permissions);
+    public List<Resource> findMenus(List<Resource> allResources, Set<String> permissions);
 
     /**
      * 查询APP用户资源
@@ -62,21 +62,21 @@ public interface SysResourceService extends BaseCommonService {
      * @param username
      * @return
      */
-    List<SysResource> findResourcesByAppUser(String appKey, String username);
+    List<Resource> findResourcesByAppUser(String appKey, String username);
 
     /**
      * 查询角色资源
      * @param roleIds
      * @return
      */
-    List<SysResource> findResourcesByRoleIds(String roleIds);
+    List<Resource> findResourcesByRoleIds(String roleIds);
 
     /**
      *
      * @param permissionsResources
      * @return
      */
-    List<SysResource> findMenus(List<SysResource> permissionsResources);
+    List<Resource> findMenus(List<Resource> permissionsResources);
 
     int updateRoleResources(Long id, String resourceIds);
 
@@ -84,7 +84,7 @@ public interface SysResourceService extends BaseCommonService {
      *
      * @return
      */
-    Map<Long, SysResource> findResources();
+    Map<Long, Resource> findResources();
 
     /**
      * 清理资源缓存

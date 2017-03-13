@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mifuns.system.facade.mapper.SysOrganizationMapper" >
-  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.SysOrganization" >
+<mapper namespace="com.mifuns.system.facade.mapper.OrganizationMapper" >
+  <resultMap id="BaseResultMap" type="com.mifuns.system.facade.entity.Organization" >
     <id column="organization_id" property="organizationId" jdbcType="BIGINT" />
     <result column="organization_name" property="organizationName" jdbcType="VARCHAR" />
     <result column="parent_id" property="parentId" jdbcType="BIGINT" />
@@ -25,7 +25,7 @@
     delete from sys_organization
     where organization_id = #{organizationId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mifuns.system.facade.entity.SysOrganization" >
+  <insert id="insert" parameterType="com.mifuns.system.facade.entity.Organization" >
     insert into sys_organization (organization_id, organization_name, 
       parent_id, parent_ids, status, 
       logo, insert_date, update_date
@@ -35,7 +35,7 @@
       #{logo,jdbcType=VARCHAR}, #{insertDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.SysOrganization" >
+  <insert id="insertSelective" parameterType="com.mifuns.system.facade.entity.Organization" >
     insert into sys_organization
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="organizationId != null" >
@@ -90,7 +90,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.SysOrganization" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mifuns.system.facade.entity.Organization" >
     update sys_organization
     <set >
       <if test="organizationName != null" >
@@ -117,7 +117,7 @@
     </set>
     where organization_id = #{organizationId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.SysOrganization" >
+  <update id="updateByPrimaryKey" parameterType="com.mifuns.system.facade.entity.Organization" >
     update sys_organization
     set organization_name = #{organizationName,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=BIGINT},

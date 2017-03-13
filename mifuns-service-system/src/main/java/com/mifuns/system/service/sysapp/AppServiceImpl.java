@@ -3,10 +3,10 @@ package com.mifuns.system.service.sysapp;
 import com.google.common.collect.Sets;
 import com.mifuns.common.util.CollectionUtil;
 import com.mifuns.common.util.DateUtils;
-import com.mifuns.system.facade.entity.SysApp;
+import com.mifuns.system.facade.entity.App;
 import com.mifuns.system.facade.enums.ResourceStatus;
-import com.mifuns.system.facade.mapper.SysAppMapper;
-import com.mifuns.system.facade.service.SysAppService;
+import com.mifuns.system.facade.mapper.AppMapper;
+import com.mifuns.system.facade.service.AppService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -17,27 +17,27 @@ import java.util.Map;
 /**
  * Created by miguangying on 2017/3/12.
  */
-@Service("sysAppService")
-public class SysAppServiceImpl implements SysAppService {
+@Service("appService")
+public class AppServiceImpl implements AppService {
 
     @javax.annotation.Resource
-    private SysAppMapper sysAppMapper;
+    private AppMapper appMapper;
 
 
     @Override
-    public SysApp createApp(SysApp app) {
-        sysAppMapper.insert(app);
+    public App createApp(App app) {
+        appMapper.insert(app);
         return app;
     }
 
     @Override
-    public SysApp updateApp(SysApp app) {
-        return sysAppMapper.updateByPrimaryKeySelective(app) > 0 ? app : null;
+    public App updateApp(App app) {
+        return appMapper.updateByPrimaryKeySelective(app) > 0 ? app : null;
     }
 
     @Override
     public int deleteApp(Long appId) {
-        return sysAppMapper.deleteByPrimaryKey(appId);
+        return appMapper.deleteByPrimaryKey(appId);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class SysAppServiceImpl implements SysAppService {
         HashSet<String> _ids = Sets.newHashSet(ids);
         int i = 0;
         for (String appId : _ids) {
-            if(null != updateApp(new SysApp((Long.valueOf(appId)), ResourceStatus.UNAVAILABLE.STATUS, DateUtils.now()))){
+            if(null != updateApp(new App((Long.valueOf(appId)), ResourceStatus.UNAVAILABLE.STATUS, DateUtils.now()))){
                 i++;
             }
         }
@@ -65,30 +65,30 @@ public class SysAppServiceImpl implements SysAppService {
     }
 
     @Override
-    public SysApp findOne(Long appId) {
-        return sysAppMapper.selectByPrimaryKey(appId);
+    public App findOne(Long appId) {
+        return appMapper.selectByPrimaryKey(appId);
     }
 
     @Override
-    public List<SysApp> findAll() {
-        return sysAppMapper.findAll();
+    public List<App> findAll() {
+        return appMapper.findAll();
     }
 
     @Override
-    public SysApp findAppByAppKey(String appKey) {
-        return sysAppMapper.findAppByAppKey(appKey);
+    public App findAppByAppKey(String appKey) {
+        return appMapper.findAppByAppKey(appKey);
     }
 
     @Override
-    public SysApp findAppByAppSecret(String appSecret) {
-        return sysAppMapper.findAppByAppSecret(appSecret);
+    public App findAppByAppSecret(String appSecret) {
+        return appMapper.findAppByAppSecret(appSecret);
     }
 
     @Override
-    public Map<Long, SysApp> findSysApps() {
-        Map<Long, SysApp> map = new HashMap<>();
-        List<SysApp> list = findAll();
-        for(SysApp app : list){
+    public Map<Long, App> findApps() {
+        Map<Long, App> map = new HashMap<>();
+        List<App> list = findAll();
+        for(App app : list){
             map.put(app.getAppId(), app);
         }
         return map;

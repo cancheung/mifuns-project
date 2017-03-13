@@ -5,54 +5,52 @@ import com.google.common.collect.Sets;
 import com.mifuns.common.page.PageBean;
 import com.mifuns.common.util.CollectionUtil;
 import com.mifuns.common.util.DateUtils;
-import com.mifuns.system.facade.entity.SysResource;
+import com.mifuns.system.facade.entity.Resource;
 import com.mifuns.system.facade.enums.ResourceStatus;
-import com.mifuns.system.facade.enums.ResourceType;
-import com.mifuns.system.facade.mapper.SysResourceMapper;
-import com.mifuns.system.facade.mapper.SysRoleResourceMapper;
-import com.mifuns.system.facade.service.SysResourceService;
+import com.mifuns.system.facade.mapper.ResourceMapper;
+import com.mifuns.system.facade.mapper.RoleResourceMapper;
+import com.mifuns.system.facade.service.ResourceService;
 import com.mifuns.system.service.util.PermissionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.Resource;
 import java.util.*;
 
 /**
  * Created by miguangying on 2017/3/9.
  */
-@Service("sysResourceService")
-public class SysResourceServiceImpl implements SysResourceService {
+@Service("resourceService")
+public class ResourceServiceImpl implements ResourceService {
 
-    private static final Logger logger = LoggerFactory.getLogger(SysResourceServiceImpl.class);
-
-    @Resource
-    SysResourceMapper sysResourceMapper;
+    private static final Logger logger = LoggerFactory.getLogger(ResourceServiceImpl.class);
 
     @javax.annotation.Resource
-    SysRoleResourceMapper sysRoleResourceMapper;
+    ResourceMapper resourceMapper;
+
+    @javax.annotation.Resource
+    RoleResourceMapper roleResourceMapper;
 
     @Override
     public Page queryPageList(PageBean pageBean) {
-        return sysResourceMapper.queryPageList(pageBean);
+        return resourceMapper.queryPageList(pageBean);
     }
 
     @Override
-    public SysResource createResource(SysResource resource) {
-        sysResourceMapper.insert(resource);
+    public Resource createResource(Resource resource) {
+        resourceMapper.insert(resource);
         return resource;
     }
 
     @Override
-    public SysResource updateResource(SysResource resource) {
-        return sysResourceMapper.updateByPrimaryKeySelective(resource) > 0 ? resource : null;
+    public Resource updateResource(Resource resource) {
+        return resourceMapper.updateByPrimaryKeySelective(resource) > 0 ? resource : null;
     }
 
     @Override
     public int deleteResource(Long resourceId) {
-        return sysResourceMapper.deleteByPrimaryKey(resourceId);
+        return resourceMapper.deleteByPrimaryKey(resourceId);
     }
 
     @Override
@@ -72,7 +70,7 @@ public class SysResourceServiceImpl implements SysResourceService {
         HashSet<String> _ids = Sets.newHashSet(ids);
         int i = 0;
         for (String resourceId : _ids) {
-            if(null != updateResource(new SysResource(Long.valueOf(resourceId), ResourceStatus.UNAVAILABLE.STATUS, DateUtils.now()))){
+            if(null != updateResource(new Resource(Long.valueOf(resourceId), ResourceStatus.UNAVAILABLE.STATUS, DateUtils.now()))){
                 i++;
             }
         }
@@ -80,25 +78,25 @@ public class SysResourceServiceImpl implements SysResourceService {
     }
 
     @Override
-    public SysResource findOne(Long resourceId) {
-        return sysResourceMapper.selectByPrimaryKey(resourceId);
+    public Resource findOne(Long resourceId) {
+        return resourceMapper.selectByPrimaryKey(resourceId);
     }
 
     @Override
-    public List<SysResource> findAll() {
-        return sysResourceMapper.findAll();
+    public List<Resource> findAll() {
+        return resourceMapper.findAll();
     }
 
     @Override
-    public List<SysResource> findResources(String ids) {
-        return sysResourceMapper.findResources(ids);
+    public List<Resource> findResources(String ids) {
+        return resourceMapper.findResources(ids);
     }
 
     @Override
     public Set<String> findPermissions(Set<Long> resourceIds) {
         Set<String> permissions = new HashSet<String>();
-        List<SysResource> list = findResources(CollectionUtil.arrayLongConvertStr(resourceIds));
-        for(SysResource resource : list){
+        List<Resource> list = findResources(CollectionUtil.arrayLongConvertStr(resourceIds));
+        for(Resource resource : list){
             if(resource != null && !StringUtils.isEmpty(resource.getPermission())) {
                 permissions.add(resource.getPermission());
             }
@@ -107,20 +105,20 @@ public class SysResourceServiceImpl implements SysResourceService {
     }
 
     @Override
-    public List<SysResource> findMenus(Set<String> resourceIds) {
-        List<SysResource> allResources = findMenuAll();
+    public List<Resource> findMenus(Set<String> resourceIds) {
+        List<Resource> allResources = findMenuAll();
         return findMenus(allResources,resourceIds);
     }
 
     @Override
-    public List<SysResource> findMenuAll() {
+    public List<Resource> findMenuAll() {
         return null;
     }
 
     @Override
-    public List<SysResource> findMenus(List<SysResource> allResources, Set<String> permissions) {
-        List<SysResource> menus = new ArrayList<SysResource>();
-        for(SysResource resource : allResources) {
+    public List<Resource> findMenus(List<Resource> allResources, Set<String> permissions) {
+        List<Resource> menus = new ArrayList<Resource>();
+        for(Resource resource : allResources) {
 //            if(resource.isRootNode()) {
 //                continue;
 //            }
@@ -139,17 +137,17 @@ public class SysResourceServiceImpl implements SysResourceService {
     }
 
     @Override
-    public List<SysResource> findResourcesByAppUser(String appKey, String username) {
+    public List<Resource> findResourcesByAppUser(String appKey, String username) {
         return null;
     }
 
     @Override
-    public List<SysResource> findResourcesByRoleIds(String roleIds) {
+    public List<Resource> findResourcesByRoleIds(String roleIds) {
         return null;
     }
 
     @Override
-    public List<SysResource> findMenus(List<SysResource> permissionsResources) {
+    public List<Resource> findMenus(List<Resource> permissionsResources) {
         return null;
     }
 
@@ -159,7 +157,7 @@ public class SysResourceServiceImpl implements SysResourceService {
     }
 
     @Override
-    public Map<Long, SysResource> findResources() {
+    public Map<Long, Resource> findResources() {
         return null;
     }
 
@@ -168,7 +166,7 @@ public class SysResourceServiceImpl implements SysResourceService {
 
     }
 
-    private boolean hasPermission(Set<String> permissions, SysResource resource) {
+    private boolean hasPermission(Set<String> permissions, Resource resource) {
         return PermissionUtil.hasPermission(permissions,resource);
     }
 }

@@ -1,8 +1,8 @@
 package com.mifuns.security.shiro.filter;
 
 import com.mifuns.security.shiro.constants.SecurityConstants;
-import com.mifuns.system.facade.entity.SysUser;
-import com.mifuns.system.facade.service.SysUserService;
+import com.mifuns.system.facade.entity.User;
+import com.mifuns.system.facade.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.PathMatchingFilter;
@@ -20,7 +20,7 @@ import javax.servlet.ServletResponse;
 public class SysUserFilter extends PathMatchingFilter {
 
     @javax.annotation.Resource
-    private SysUserService sysUserService;
+    private UserService userService;
     public static final String ATTR_CURRENT_USER = "attrCurrentUser";
 
 
@@ -30,14 +30,14 @@ public class SysUserFilter extends PathMatchingFilter {
         String username = (String) subject.getPrincipal();
         Object obj = subject.getSession(true).getAttribute(ATTR_CURRENT_USER);
         if(obj != null){
-            if(obj instanceof SysUser){
+            if(obj instanceof User){
                 request.setAttribute(SecurityConstants.CURRENT_USER, obj);
                 return true;
             }
         }
-        SysUser sysUser = sysUserService.findByUsername(username);
-        subject.getSession(true).setAttribute(ATTR_CURRENT_USER, sysUser);
-        request.setAttribute(SecurityConstants.CURRENT_USER, sysUser);
+        User user = userService.findByUsername(username);
+        subject.getSession(true).setAttribute(ATTR_CURRENT_USER, user);
+        request.setAttribute(SecurityConstants.CURRENT_USER, user);
 //        AuthenticationListener
         return true;
     }

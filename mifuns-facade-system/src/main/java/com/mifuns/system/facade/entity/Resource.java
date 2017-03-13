@@ -4,7 +4,7 @@ import com.mifuns.system.facade.enums.ResourceType;
 
 import java.util.Date;
 
-public class SysResource {
+public class Resource {
     /**
      *
      * sys_resource.resource_id
@@ -105,10 +105,10 @@ public class SysResource {
         return ResourceType.valueOf(type) == ResourceType.MENU;
     }
 
-    public SysResource() {
+    public Resource() {
     }
 
-    public SysResource(Long resourceId, Integer status, Date updateDate) {
+    public Resource(Long resourceId, Integer status, Date updateDate) {
         this.resourceId = resourceId;
         this.status = status;
         this.updateDate = updateDate;

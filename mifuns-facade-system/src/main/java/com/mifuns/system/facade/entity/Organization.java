@@ -4,7 +4,7 @@ import com.mifuns.common.page.PageBean;
 
 import java.util.Date;
 
-public class SysOrganization extends PageBean {
+public class Organization extends PageBean {
     /**
      *
      * sys_organization.organization_id

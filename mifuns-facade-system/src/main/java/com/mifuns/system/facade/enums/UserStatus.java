@@ -7,7 +7,7 @@ package com.mifuns.system.facade.enums;
  * <p>Time: 18:26 </p>
  * <p>Version: 1.0 </p>
  */
-public enum SysUserStatus {
+public enum UserStatus {
 
     /** 0 锁定 **/
     LOCKED(0),
@@ -15,7 +15,7 @@ public enum SysUserStatus {
     UNLOCKED(1);
 
     public int STATUS;
-    SysUserStatus(int i) {
+    UserStatus(int i) {
         this.STATUS = i;
     }
 }
